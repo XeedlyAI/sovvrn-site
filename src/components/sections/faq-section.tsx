@@ -33,7 +33,7 @@ export function FAQSection({ title = 'FAQ', items }: FAQSectionProps) {
   }
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-12 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

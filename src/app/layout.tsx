@@ -1,23 +1,17 @@
 import type { Metadata } from "next"
-import { DM_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import "./globals.css"
 
-const dmSans = DM_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 })
 
-const instrumentSerif = Instrument_Serif({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-serif',
-  display: 'swap',
-})
-
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ['400', '500', '600'],
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
@@ -66,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${plusJakarta.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
         <Header
           brandName="SOVVRN"
           navLinks={navLinks}

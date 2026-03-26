@@ -36,40 +36,40 @@ const posts = [
 export default function BlogPage() {
   return (
     <main>
-      {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.08)_0%,_transparent_60%)]" />
+      {/* ===== HERO (dark) ===== */}
+      <section className="section-dark relative overflow-hidden py-20 md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Blog</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-normal leading-tight md:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-5xl">
               Insights for multi-unit operators
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
               Practical articles on restaurant operations, cost management, AI-powered intelligence, and running multiple locations without burning out.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== POST LISTING ===== */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ===== POST LISTING (light) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {posts.map((post, i) => (
               <SectionReveal key={post.slug} delay={i * 0.1}>
-                <article className="group flex h-full flex-col rounded-xl border border-border-subtle bg-background p-8 transition-all hover:-translate-y-1 hover:border-accent-blue/30">
+                <article className="card-light group flex h-full flex-col rounded-xl p-8">
                   <div className="flex items-center gap-3">
                     <span className="rounded-md bg-accent-blue/10 px-2.5 py-1 font-mono text-xs font-medium text-accent-blue">
                       {post.category}
                     </span>
                     <span className="text-xs text-text-secondary">{post.readTime}</span>
                   </div>
-                  <h2 className="mt-4 text-xl font-normal leading-snug">{post.title}</h2>
+                  <h2 className="mt-4 text-xl font-bold leading-snug">{post.title}</h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{post.excerpt}</p>
                   <div className="mt-6 flex items-center justify-between">
                     <time className="font-mono text-xs text-text-secondary" dateTime={post.date}>
@@ -86,7 +86,7 @@ export default function BlogPage() {
 
           {/* Empty state message */}
           <SectionReveal delay={0.2}>
-            <div className="mt-12 rounded-xl border border-border-subtle bg-background p-8 text-center">
+            <div className="card-light mt-10 rounded-xl p-8 text-center">
               <p className="text-text-secondary">
                 More articles coming soon. Want to be notified?{' '}
                 <Link href="/contact" className="text-accent-blue hover:underline">
@@ -99,12 +99,12 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== CTA (dark) ===== */}
+      <section className="section-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-normal md:text-4xl">Ready to stop pulling reports?</h2>
-            <p className="mx-auto mt-4 max-w-lg text-text-secondary">
+            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">Ready to stop pulling reports?</h2>
+            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
               See how Sovvrn delivers intelligence to operators who run their business from the floor.
             </p>
             <div className="mt-8">

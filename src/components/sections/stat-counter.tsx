@@ -61,7 +61,7 @@ export function StatCounter({ value, label, prefix = '', suffix = '' }: StatCoun
       >
         {prefix}{displayValue}{suffix}
       </motion.p>
-      <p className="mt-2 text-sm font-medium text-text-secondary">{label}</p>
+      <p className="mt-2 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">{label}</p>
     </div>
   )
 }

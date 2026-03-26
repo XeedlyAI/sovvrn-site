@@ -15,10 +15,14 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-text-secondary: var(--text-secondary);
+  --color-dark-bg: var(--dark-bg);
+  --color-dark-surface: var(--dark-surface);
+  --color-dark-border: var(--dark-border);
+  --color-dark-text: var(--dark-text);
+  --color-dark-text-secondary: var(--dark-text-secondary);
   --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
-  --font-heading: var(--font-serif);
+  --font-heading: var(--font-sans);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -45,34 +49,41 @@
 }
 
 :root {
-  /* Sovvrn Dark Theme */
-  --background: #0C0F14;
-  --foreground: #E8ECF4;
-  --surface: #13161D;
-  --surface-foreground: #E8ECF4;
-  --border-subtle: #1E2330;
+  /* Sovvrn Light Theme */
+  --background: #FAFAFA;
+  --foreground: #1A1A2E;
+  --surface: #F3F4F6;
+  --surface-foreground: #1A1A2E;
+  --border-subtle: #E5E7EB;
   --accent-blue: #4E8AE6;
   --accent-gold: #D4A853;
   --success: #3EBE7A;
   --warning: #E88B5C;
-  --text-secondary: #8B93A7;
+  --text-secondary: #6B7280;
+
+  /* Dark section tokens */
+  --dark-bg: #0C0F14;
+  --dark-surface: #1A1F2E;
+  --dark-border: #2A3040;
+  --dark-text: #E8ECF4;
+  --dark-text-secondary: #8B93A7;
 
   /* shadcn mappings */
-  --card: #13161D;
-  --card-foreground: #E8ECF4;
-  --popover: #13161D;
-  --popover-foreground: #E8ECF4;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A2E;
   --primary: #4E8AE6;
   --primary-foreground: #FFFFFF;
-  --secondary: #1E2330;
-  --secondary-foreground: #E8ECF4;
-  --muted: #1E2330;
-  --muted-foreground: #8B93A7;
-  --accent: #1E2330;
-  --accent-foreground: #E8ECF4;
+  --secondary: #F3F4F6;
+  --secondary-foreground: #1A1A2E;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --accent: #F3F4F6;
+  --accent-foreground: #1A1A2E;
   --destructive: #E88B5C;
-  --border: #1E2330;
-  --input: #1E2330;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
   --ring: #4E8AE6;
   --radius: 0.625rem;
 }
@@ -91,7 +102,61 @@
     scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
+    font-weight: 700;
     line-height: 1.2;
   }
+}
+
+/* Dark section utility */
+.section-dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.section-dark .text-foreground {
+  color: var(--dark-text);
+}
+
+.section-dark .text-text-secondary {
+  color: var(--dark-text-secondary);
+}
+
+/* Card base styles */
+.card-light {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-dark {
+  background-color: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Polished placeholder boxes */
+.placeholder-box {
+  background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.section-dark .placeholder-box {
+  background: linear-gradient(135deg, #1A1F2E, #13161D);
 }

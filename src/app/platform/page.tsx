@@ -13,6 +13,7 @@ import {
   Phone,
   Star,
   Layers,
+  Monitor,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -178,20 +179,20 @@ export default function PlatformPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(svcSchema) }}
       />
 
-      {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-24 md:py-36">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.08)_0%,_transparent_60%)]" />
+      {/* ===== HERO (dark) ===== */}
+      <section className="section-dark relative overflow-hidden py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Platform</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-normal leading-tight md:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-6xl">
               Everything your POS doesn&apos;t tell you
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
               Sovvrn sits on top of your existing systems and adds the intelligence layer that turns raw data into coached decisions. Here is a full walkthrough of every capability.
             </p>
           </SectionReveal>
@@ -208,20 +209,20 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ===== CAPABILITIES ===== */}
+      {/* ===== CAPABILITIES (alternating light) ===== */}
       {capabilities.map((cap, i) => (
         <section
           key={cap.id}
           id={cap.id}
-          className={`py-20 md:py-28 ${i % 2 === 0 ? 'bg-surface' : ''}`}
+          className={`py-16 md:py-20 ${i % 2 === 0 ? 'bg-surface' : ''}`}
         >
           <div className="mx-auto max-w-[1200px] px-5">
             <SectionReveal>
               <div className="flex items-start gap-4">
                 <cap.icon size={28} className="mt-1 shrink-0 text-accent-blue" />
                 <div>
-                  <p className="font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">{cap.subtitle}</p>
-                  <h2 className="mt-2 text-3xl font-normal md:text-4xl">{cap.title}</h2>
+                  <p className="font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">{cap.subtitle}</p>
+                  <h2 className="mt-2 text-3xl font-bold md:text-4xl">{cap.title}</h2>
                 </div>
               </div>
             </SectionReveal>
@@ -240,20 +241,21 @@ export default function PlatformPage() {
             </SectionReveal>
             <SectionReveal delay={0.3}>
               {/* PLACEHOLDER: product screenshot/mockup area */}
-              <div className="mt-10 flex h-48 items-center justify-center rounded-lg border border-border-subtle/60 bg-background md:h-64">
-                <p className="font-mono text-xs text-text-secondary">[PLACEHOLDER — {cap.title} screenshot]</p>
+              <div className="placeholder-box mt-8 h-48 rounded-lg md:h-64">
+                <Monitor size={24} className="text-text-secondary/40" />
+                <p className="font-mono text-xs text-text-secondary/60">Product preview coming soon</p>
               </div>
             </SectionReveal>
           </div>
         </section>
       ))}
 
-      {/* ===== INTEGRATIONS ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== INTEGRATIONS (light) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Integrations</p>
-            <h2 className="max-w-2xl text-3xl font-normal md:text-4xl">
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Integrations</p>
+            <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               Connects to the systems you already use
             </h2>
             <p className="mt-4 max-w-xl text-text-secondary">
@@ -261,11 +263,11 @@ export default function PlatformPage() {
             </p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <div className="mt-12 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               {integrations.map((name) => (
                 <span
                   key={name}
-                  className="rounded-lg border border-border-subtle bg-surface px-4 py-2.5 font-mono text-xs font-medium text-text-secondary"
+                  className="rounded-lg border border-border-subtle bg-white px-4 py-2.5 font-mono text-xs font-medium text-text-secondary"
                 >
                   {name}
                 </span>
@@ -275,7 +277,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
+      {/* ===== FAQ (light) ===== */}
       <section className="bg-surface">
         <FAQSection
           title="Platform questions"
@@ -283,12 +285,12 @@ export default function PlatformPage() {
         />
       </section>
 
-      {/* ===== CTA ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== CTA (dark) ===== */}
+      <section className="section-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-normal md:text-4xl">Ready to see the full platform?</h2>
-            <p className="mx-auto mt-4 max-w-lg text-text-secondary">
+            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">Ready to see the full platform?</h2>
+            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
               Book a 20-minute demo and we will walk you through every capability with your actual use case in mind.
             </p>
             <div className="mt-8">

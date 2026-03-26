@@ -50,7 +50,7 @@ export function ContactForm() {
           name="name"
           required
           placeholder="Your name"
-          className="h-11 border-border-subtle bg-surface text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
         />
       </div>
 
@@ -64,7 +64,7 @@ export function ContactForm() {
           type="email"
           required
           placeholder="you@company.com"
-          className="h-11 border-border-subtle bg-surface text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
         />
       </div>
 
@@ -76,7 +76,7 @@ export function ContactForm() {
           id="company"
           name="company"
           placeholder="Your restaurant group or company"
-          className="h-11 border-border-subtle bg-surface text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
         />
       </div>
 
@@ -88,7 +88,7 @@ export function ContactForm() {
           id="locations"
           name="locations"
           placeholder="e.g. 5"
-          className="h-11 border-border-subtle bg-surface text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
         />
       </div>
 
@@ -101,7 +101,7 @@ export function ContactForm() {
           name="message"
           rows={4}
           placeholder="Tell us about your operation or ask a question"
-          className="border-border-subtle bg-surface text-foreground placeholder:text-text-secondary/50"
+          className="border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
         />
       </div>
 

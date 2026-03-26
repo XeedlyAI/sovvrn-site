@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 interface NavLink {
   label: string
@@ -21,9 +20,9 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border-subtle/60 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border-subtle bg-white/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-4">
-        <Link href="/" className="font-serif text-xl tracking-wider text-foreground">
+        <Link href="/" className="text-xl font-extrabold tracking-wider text-foreground">
           {brandName}
         </Link>
 
@@ -60,7 +59,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="flex flex-col gap-4 border-t border-border-subtle/60 bg-background px-5 py-5 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-border-subtle bg-white px-5 py-5 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { localBusinessSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
 import { ContactForm } from '@/components/sections/contact-form'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Monitor } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Book a Demo | Contact Sovvrn',
@@ -39,57 +39,58 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
-      {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.08)_0%,_transparent_60%)]" />
+      {/* ===== HERO (dark) ===== */}
+      <section className="section-dark relative overflow-hidden py-20 md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Contact</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-normal leading-tight md:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-5xl">
               See Sovvrn in action
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
               Book a 20-minute demo and we will walk through the platform with your specific operation in mind — your POS, your locations, your cost targets. Or just reach out with a question.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== FORM + INFO ===== */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ===== FORM + INFO (light) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-10 md:grid-cols-2">
             {/* Contact Form */}
             <SectionReveal>
-              <div className="rounded-xl border border-border-subtle bg-background p-8">
-                <h2 className="text-2xl font-normal">Request a demo</h2>
+              <div className="card-light rounded-xl p-8">
+                <h2 className="text-2xl font-bold">Request a demo</h2>
                 <p className="mt-2 text-sm text-text-secondary">Fill out the form and we will be in touch within one business day.</p>
                 <ContactForm />
               </div>
             </SectionReveal>
 
             {/* Contact Info + Calendly */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <SectionReveal delay={0.1}>
-                <div className="rounded-xl border border-border-subtle bg-background p-8">
-                  <h3 className="font-sans text-lg font-semibold text-foreground">Or book directly</h3>
+                <div className="card-light rounded-xl p-8">
+                  <h3 className="text-lg font-bold text-foreground">Or book directly</h3>
                   <p className="mt-2 text-sm text-text-secondary">
                     Pick a time that works for you. 20 minutes, no pressure.
                   </p>
                   {/* PLACEHOLDER: Calendly embed */}
-                  <div className="mt-6 flex h-64 items-center justify-center rounded-lg border border-border-subtle/60 bg-surface">
-                    <p className="font-mono text-xs text-text-secondary">[PLACEHOLDER — Calendly embed]</p>
+                  <div className="placeholder-box mt-6 h-64 rounded-lg">
+                    <Monitor size={24} className="text-text-secondary/40" />
+                    <p className="font-mono text-xs text-text-secondary/60">Calendly embed coming soon</p>
                   </div>
                 </div>
               </SectionReveal>
 
               <SectionReveal delay={0.2}>
-                <div className="rounded-xl border border-border-subtle bg-background p-8">
-                  <h3 className="font-sans text-lg font-semibold text-foreground">Get in touch</h3>
+                <div className="card-light rounded-xl p-8">
+                  <h3 className="text-lg font-bold text-foreground">Get in touch</h3>
                   <div className="mt-6 space-y-4">
                     <div className="flex items-center gap-3">
                       <Mail size={18} className="text-accent-blue" />
@@ -114,13 +115,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ===== WHAT TO EXPECT ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== WHAT TO EXPECT (light bg-surface) ===== */}
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <h2 className="text-center text-3xl font-normal md:text-4xl">What to expect in your demo</h2>
+            <h2 className="text-center text-3xl font-bold md:text-4xl">What to expect in your demo</h2>
           </SectionReveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               {
                 step: '01',
@@ -139,9 +140,9 @@ export default function ContactPage() {
               },
             ].map((item, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="rounded-xl border border-border-subtle bg-surface p-6">
-                  <span className="font-mono text-2xl font-bold text-accent-blue/30">{item.step}</span>
-                  <h3 className="mt-2 font-sans text-lg font-semibold text-foreground">{item.title}</h3>
+                <div className="card-light rounded-xl p-6">
+                  <span className="font-mono text-2xl font-bold text-accent-blue/25">{item.step}</span>
+                  <h3 className="mt-2 text-lg font-bold text-foreground">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.description}</p>
                 </div>
               </SectionReveal>

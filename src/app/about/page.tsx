@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { organizationSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
-import { ArrowRight, Target, Eye, Zap, Shield } from 'lucide-react'
+import { ArrowRight, Target, Eye, Zap, Shield, Monitor } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Sovvrn | Our Story & Mission',
@@ -51,33 +51,33 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
       />
 
-      {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-24 md:py-36">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.08)_0%,_transparent_60%)]" />
+      {/* ===== HERO (dark) ===== */}
+      <section className="section-dark relative overflow-hidden py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">About</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-normal leading-tight md:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-5xl">
               We built Sovvrn because operators deserve better than spreadsheets
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
               Every multi-unit operator we talked to described the same morning: log into the POS for each location, copy numbers into a spreadsheet, try to spot what changed, and hope nothing slipped through the cracks. We built Sovvrn to replace that routine with intelligence.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== FOUNDER STORY ===== */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ===== FOUNDER STORY (light) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-10 md:grid-cols-2">
             <SectionReveal>
-              <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">The origin</p>
-              <h2 className="text-3xl font-normal md:text-4xl">Born from frustration, built with purpose</h2>
+              <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">The origin</p>
+              <h2 className="text-3xl font-bold md:text-4xl">Born from frustration, built with purpose</h2>
               <div className="mt-6 space-y-4 text-base leading-relaxed text-text-secondary">
                 <p>
                   Sovvrn started with a simple observation: the operators who run our favorite restaurants are working harder than almost anyone in business, and the tools they have are not keeping up.
@@ -95,20 +95,21 @@ export default function AboutPage() {
             </SectionReveal>
             <SectionReveal delay={0.2}>
               {/* PLACEHOLDER: founder photo or abstract brand visual */}
-              <div className="flex h-full min-h-[300px] items-center justify-center rounded-xl border border-border-subtle bg-background">
-                <p className="font-mono text-xs text-text-secondary">[PLACEHOLDER — founder/team visual]</p>
+              <div className="placeholder-box h-full min-h-[300px] rounded-xl">
+                <Monitor size={28} className="text-text-secondary/40" />
+                <p className="font-mono text-xs text-text-secondary/60">Team visual coming soon</p>
               </div>
             </SectionReveal>
           </div>
         </div>
       </section>
 
-      {/* ===== VISION ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== VISION (light bg-surface) ===== */}
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Vision</p>
-            <h2 className="max-w-2xl text-3xl font-normal md:text-4xl">
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Vision</p>
+            <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               Give every multi-unit operator the intelligence advantage that billion-dollar chains already have
             </h2>
           </SectionReveal>
@@ -128,12 +129,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== PARENT COMPANY ===== */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ===== PARENT COMPANY (light) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Parent Company</p>
-            <h2 className="text-3xl font-normal md:text-4xl">Built by XeedlyAI</h2>
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Parent Company</p>
+            <h2 className="text-3xl font-bold md:text-4xl">Built by XeedlyAI</h2>
           </SectionReveal>
           <SectionReveal delay={0.1}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-secondary">
@@ -147,21 +148,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== VALUES ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== VALUES (light bg-surface) ===== */}
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Values</p>
-            <h2 className="max-w-2xl text-3xl font-normal md:text-4xl">
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Values</p>
+            <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               What guides every decision we make
             </h2>
           </SectionReveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {values.map((value, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="rounded-xl border border-border-subtle bg-surface p-8">
+                <div className="card-light rounded-xl p-8">
                   <value.icon size={24} className="text-accent-blue" />
-                  <h3 className="mt-4 font-sans text-lg font-semibold text-foreground">{value.title}</h3>
+                  <h3 className="mt-4 text-lg font-bold text-foreground">{value.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{value.description}</p>
                 </div>
               </SectionReveal>
@@ -170,22 +171,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== TEAM ===== */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ===== TEAM (light) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Team</p>
-            <h2 className="text-3xl font-normal md:text-4xl">The people behind Sovvrn</h2>
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Team</p>
+            <h2 className="text-3xl font-bold md:text-4xl">The people behind Sovvrn</h2>
           </SectionReveal>
           <SectionReveal delay={0.1}>
             {/* PLACEHOLDER: team members */}
-            <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            <div className="mt-10 grid gap-5 sm:grid-cols-3">
               {[1, 2, 3].map((n) => (
-                <div key={n} className="rounded-xl border border-border-subtle bg-background p-6 text-center">
+                <div key={n} className="card-light rounded-xl p-6 text-center">
                   <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-accent-blue/10">
                     <span className="font-mono text-sm text-text-secondary">?</span>
                   </div>
-                  <p className="mt-4 font-sans text-sm font-semibold text-foreground">[PLACEHOLDER — Team Member {n}]</p>
+                  <p className="mt-4 text-sm font-bold text-foreground">[PLACEHOLDER — Team Member {n}]</p>
                   <p className="mt-1 text-xs text-text-secondary">[Title]</p>
                 </div>
               ))}
@@ -194,12 +195,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
-      <section className="py-20 md:py-28">
+      {/* ===== CTA (dark) ===== */}
+      <section className="section-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-normal md:text-4xl">Want to learn more?</h2>
-            <p className="mx-auto mt-4 max-w-lg text-text-secondary">
+            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">Want to learn more?</h2>
+            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
               See how Sovvrn works for your specific operation, or just say hello.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -211,7 +212,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/platform"
-                className="inline-flex items-center gap-2 rounded-lg border border-border-subtle px-8 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-text-secondary/40 hover:bg-surface"
+                className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-8 py-3.5 text-sm font-semibold text-dark-text transition-all hover:border-dark-text-secondary/40 hover:bg-dark-surface"
               >
                 Explore the Platform
               </Link>
