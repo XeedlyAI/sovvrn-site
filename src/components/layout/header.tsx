@@ -21,19 +21,19 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full border-b border-border-subtle/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-4">
-        <Link href="/" className="text-xl font-bold tracking-tight">
+        <Link href="/" className="font-serif text-xl tracking-wider text-foreground">
           {brandName}
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-text-secondary transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -41,7 +41,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
           {ctaLabel && ctaHref && (
             <Link
               href={ctaHref}
-              className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
+              className="rounded-lg bg-accent-blue px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
             >
               {ctaLabel}
             </Link>
@@ -50,7 +50,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden"
+          className="text-foreground md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -60,12 +60,12 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="flex flex-col gap-4 border-t border-border/40 bg-background px-5 py-4 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-border-subtle/60 bg-background px-5 py-5 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium"
+              className="text-sm font-medium text-text-secondary hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -74,7 +74,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
           {ctaLabel && ctaHref && (
             <Link
               href={ctaHref}
-              className="rounded-lg bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground"
+              className="rounded-lg bg-accent-blue px-5 py-2.5 text-center text-sm font-semibold text-white"
               onClick={() => setMobileOpen(false)}
             >
               {ctaLabel}
