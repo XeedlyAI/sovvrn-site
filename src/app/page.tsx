@@ -136,13 +136,13 @@ export default function HomePage() {
             </p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
               Stop pulling reports.<br />
               Start getting answers.
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-body">
               Sovvrn connects to your POS, labor tools, and review platforms — then delivers proactive intelligence to your phone before your first location visit. AI coaching, anomaly detection, and cost tracking for multi-unit restaurant operators.
             </p>
           </SectionReveal>
@@ -150,7 +150,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>
@@ -175,7 +175,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== PROBLEM (light) ===== */}
+      {/* ===== PROBLEM (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -201,7 +201,7 @@ export default function HomePage() {
             ].map((item, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className="card-light rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
+                  <h3 className="text-lg font-bold">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{item.body}</p>
                 </div>
               </SectionReveal>
@@ -210,15 +210,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== PLATFORM PILLARS (light) ===== */}
-      <section className="bg-surface py-16 md:py-20">
+      {/* ===== PLATFORM PILLARS (blue wash) ===== */}
+      <section className="bg-wash-blue py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Platform</p>
             <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               Four pillars of operational intelligence
             </h2>
-            <p className="mt-4 max-w-xl text-text-secondary">
+            <p className="mt-4 max-w-xl text-text-body">
               Sovvrn is not another dashboard. It is an intelligence layer that connects to your existing systems and delivers answers — not charts.
             </p>
           </SectionReveal>
@@ -227,7 +227,7 @@ export default function HomePage() {
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className="card-light rounded-xl p-8">
                   <pillar.icon size={28} className="text-accent-blue" />
-                  <h3 className="mt-4 text-xl font-bold text-foreground">{pillar.title}</h3>
+                  <h3 className="mt-4 text-xl font-bold">{pillar.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{pillar.description}</p>
                 </div>
               </SectionReveal>
@@ -243,7 +243,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== HOW IT WORKS (light) ===== */}
+      {/* ===== HOW IT WORKS (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -256,8 +256,8 @@ export default function HomePage() {
             {steps.map((s, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className="relative">
-                  <span className="font-mono text-3xl font-bold text-accent-blue/25">{s.step}</span>
-                  <h3 className="mt-2 text-lg font-bold text-foreground">{s.label}</h3>
+                  <span className="font-mono text-3xl font-bold text-accent-blue/20">{s.step}</span>
+                  <h3 className="mt-2 text-lg font-bold">{s.label}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{s.description}</p>
                 </div>
               </SectionReveal>
@@ -266,28 +266,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== FEATURE DEEP-DIVES (dark accent) ===== */}
-      <section className="section-dark py-16 md:py-20">
+      {/* ===== FEATURE DEEP-DIVES (off-white) ===== */}
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Product</p>
-            <h2 className="max-w-2xl text-3xl font-bold text-dark-text md:text-4xl">
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Product</p>
+            <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               Built for operators who run their business from the floor
             </h2>
           </SectionReveal>
           <div className="mt-10 space-y-6">
             {features.map((feat, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-dark rounded-xl p-8 md:p-10">
-                  <span className="inline-block rounded-md bg-accent-blue/15 px-3 py-1 font-mono text-xs font-medium text-accent-blue">
+                <div className="card-light rounded-xl p-8 md:p-10">
+                  <span className="inline-block rounded-md bg-accent-blue/10 px-3 py-1 font-mono text-xs font-medium text-accent-blue">
                     {feat.badge}
                   </span>
-                  <h3 className="mt-4 text-2xl font-bold text-dark-text md:text-3xl">{feat.title}</h3>
-                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-dark-text-secondary">{feat.description}</p>
+                  <h3 className="mt-4 text-2xl font-bold md:text-3xl">{feat.title}</h3>
+                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-body">{feat.description}</p>
                   {/* PLACEHOLDER: product screenshot/mockup area */}
                   <div className="placeholder-box mt-8 h-48 rounded-lg md:h-64">
-                    <Monitor size={24} className="text-dark-text-secondary/40" />
-                    <p className="font-mono text-xs text-dark-text-secondary/60">Product preview coming soon</p>
+                    <Monitor size={24} className="text-text-muted/50" />
+                    <p className="font-mono text-xs text-text-muted">Product preview coming soon</p>
                   </div>
                 </div>
               </SectionReveal>
@@ -296,8 +296,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== SOCIAL PROOF (light) ===== */}
-      <section className="py-16 md:py-20">
+      {/* ===== SOCIAL PROOF (warm wash) ===== */}
+      <section className="bg-wash-warm py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Results</p>
@@ -318,18 +318,18 @@ export default function HomePage() {
           {/* Testimonial placeholder */}
           <SectionReveal delay={0.2}>
             <div className="card-light mt-12 rounded-xl p-8 md:p-10">
-              <p className="max-w-2xl text-lg italic leading-relaxed text-text-secondary">
+              <p className="max-w-2xl text-lg italic leading-relaxed text-text-body">
                 {/* PLACEHOLDER — replace with real testimonial */}
                 &ldquo;Before Sovvrn, I spent 90 minutes every morning logging into Toast for each of my 12 locations. Now I get a text at 7am that tells me exactly where to focus. Last month it flagged a produce invoice 22% above contract price that would have cost us $4K.&rdquo;
               </p>
-              <p className="mt-4 font-mono text-xs text-text-secondary">[PLACEHOLDER] — Name, Title, Company, 12 Locations</p>
+              <p className="mt-4 font-mono text-xs text-text-muted">[PLACEHOLDER] — Name, Title, Company, 12 Locations</p>
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== VERTICALS TEASER (light) ===== */}
-      <section className="bg-surface py-16 md:py-20">
+      {/* ===== VERTICALS TEASER (white) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Verticals</p>
@@ -341,7 +341,7 @@ export default function HomePage() {
             <SectionReveal delay={0.1}>
               <Link href="/restaurants" className="card-light group block rounded-xl p-8">
                 <UtensilsCrossed size={28} className="text-accent-blue" />
-                <h3 className="mt-4 text-xl font-bold text-foreground">Restaurants</h3>
+                <h3 className="mt-4 text-xl font-bold">Restaurants</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                   Multi-unit chains, franchise groups, and portfolio operators. Prime cost tracking, labor analytics, review intelligence, and Voice AI built for restaurant operations.
                 </p>
@@ -352,20 +352,20 @@ export default function HomePage() {
             </SectionReveal>
             <SectionReveal delay={0.2}>
               <div className="card-light rounded-xl p-8 opacity-60">
-                <Dumbbell size={28} className="text-text-secondary" />
-                <h3 className="mt-4 text-xl font-bold text-foreground">Active Entertainment</h3>
+                <Dumbbell size={28} className="text-text-muted" />
+                <h3 className="mt-4 text-xl font-bold">Active Entertainment</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                   Climbing gyms, trampoline parks, and adventure centers. Multi-location operational intelligence tailored to the entertainment vertical.
                 </p>
-                <span className="mt-4 inline-block font-mono text-xs text-text-secondary">Coming soon</span>
+                <span className="mt-4 inline-block font-mono text-xs text-text-muted">Coming soon</span>
               </div>
             </SectionReveal>
           </div>
         </div>
       </section>
 
-      {/* ===== FAQ (light) ===== */}
-      <section>
+      {/* ===== FAQ (off-white) ===== */}
+      <section className="bg-surface">
         <FAQSection
           title="Common questions about Sovvrn"
           items={faqItems}
@@ -376,14 +376,14 @@ export default function HomePage() {
       <section className="section-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">See Sovvrn in action</h2>
-            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
+            <h2 className="text-3xl font-bold md:text-4xl">See Sovvrn in action</h2>
+            <p className="mx-auto mt-4 max-w-lg text-dark-text-body">
               Book a 20-minute demo and see how Sovvrn turns fragmented data into morning intelligence for your locations.
             </p>
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>

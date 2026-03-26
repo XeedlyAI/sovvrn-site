@@ -36,27 +36,26 @@ const posts = [
 export default function BlogPage() {
   return (
     <main>
-      {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden py-20 md:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
+      {/* ===== HERO (light — no dark on Blog) ===== */}
+      <section className="relative overflow-hidden bg-wash-blue py-20 md:py-24">
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Blog</p>
+            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Blog</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
               Insights for multi-unit operators
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-body">
               Practical articles on restaurant operations, cost management, AI-powered intelligence, and running multiple locations without burning out.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== POST LISTING (light) ===== */}
+      {/* ===== POST LISTING (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid gap-6 md:grid-cols-2">
@@ -67,12 +66,12 @@ export default function BlogPage() {
                     <span className="rounded-md bg-accent-blue/10 px-2.5 py-1 font-mono text-xs font-medium text-accent-blue">
                       {post.category}
                     </span>
-                    <span className="text-xs text-text-secondary">{post.readTime}</span>
+                    <span className="text-xs text-text-muted">{post.readTime}</span>
                   </div>
-                  <h2 className="mt-4 text-xl font-bold leading-snug">{post.title}</h2>
+                  <h2 className="mt-4 text-xl font-bold leading-snug text-text-heading">{post.title}</h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{post.excerpt}</p>
                   <div className="mt-6 flex items-center justify-between">
-                    <time className="font-mono text-xs text-text-secondary" dateTime={post.date}>
+                    <time className="font-mono text-xs text-text-muted" dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                     </time>
                     <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent-blue">
@@ -99,18 +98,18 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* ===== CTA (dark) ===== */}
-      <section className="section-dark py-16 md:py-20">
+      {/* ===== CTA (warm wash — no dark on Blog) ===== */}
+      <section className="bg-wash-warm py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">Ready to stop pulling reports?</h2>
-            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
+            <h2 className="text-3xl font-bold md:text-4xl">Ready to stop pulling reports?</h2>
+            <p className="mx-auto mt-4 max-w-lg text-text-body">
               See how Sovvrn delivers intelligence to operators who run their business from the floor.
             </p>
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>

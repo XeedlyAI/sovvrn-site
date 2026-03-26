@@ -42,7 +42,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-6 space-y-5">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">
+        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Full Name
         </label>
         <Input
@@ -50,12 +50,12 @@ export function ContactForm() {
           name="name"
           required
           placeholder="Your name"
-          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Work Email
         </label>
         <Input
@@ -64,36 +64,36 @@ export function ContactForm() {
           type="email"
           required
           placeholder="you@company.com"
-          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-foreground">
+        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Company
         </label>
         <Input
           id="company"
           name="company"
           placeholder="Your restaurant group or company"
-          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="locations" className="mb-1.5 block text-sm font-medium text-foreground">
+        <label htmlFor="locations" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Number of Locations
         </label>
         <Input
           id="locations"
           name="locations"
           placeholder="e.g. 5"
-          className="h-11 border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Message (optional)
         </label>
         <Textarea
@@ -101,14 +101,14 @@ export function ContactForm() {
           name="message"
           rows={4}
           placeholder="Tell us about your operation or ask a question"
-          className="border-border-subtle bg-background text-foreground placeholder:text-text-secondary/50"
+          className="border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85 disabled:opacity-50"
+        className="w-full rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md disabled:opacity-50"
       >
         {status === 'submitting' ? 'Sending...' : 'Request a Demo'}
       </button>

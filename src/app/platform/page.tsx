@@ -171,6 +171,12 @@ const faqItems = [
   },
 ]
 
+// Give command-center a blue wash background
+const getBgClass = (index: number) => {
+  if (index === 0) return 'bg-wash-blue'
+  return index % 2 === 0 ? 'bg-surface' : ''
+}
+
 export default function PlatformPage() {
   return (
     <main>
@@ -187,12 +193,12 @@ export default function PlatformPage() {
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Platform</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
               Everything your POS doesn&apos;t tell you
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-body">
               Sovvrn sits on top of your existing systems and adds the intelligence layer that turns raw data into coached decisions. Here is a full walkthrough of every capability.
             </p>
           </SectionReveal>
@@ -200,7 +206,7 @@ export default function PlatformPage() {
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>
@@ -209,12 +215,12 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ===== CAPABILITIES (alternating light) ===== */}
+      {/* ===== CAPABILITIES (alternating white/off-white, first gets blue wash) ===== */}
       {capabilities.map((cap, i) => (
         <section
           key={cap.id}
           id={cap.id}
-          className={`py-16 md:py-20 ${i % 2 === 0 ? 'bg-surface' : ''}`}
+          className={`py-16 md:py-20 ${getBgClass(i)}`}
         >
           <div className="mx-auto max-w-[1200px] px-5">
             <SectionReveal>
@@ -227,7 +233,7 @@ export default function PlatformPage() {
               </div>
             </SectionReveal>
             <SectionReveal delay={0.1}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-secondary">{cap.description}</p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-body">{cap.description}</p>
             </SectionReveal>
             <SectionReveal delay={0.2}>
               <ul className="mt-8 grid gap-3 md:grid-cols-2">
@@ -242,15 +248,15 @@ export default function PlatformPage() {
             <SectionReveal delay={0.3}>
               {/* PLACEHOLDER: product screenshot/mockup area */}
               <div className="placeholder-box mt-8 h-48 rounded-lg md:h-64">
-                <Monitor size={24} className="text-text-secondary/40" />
-                <p className="font-mono text-xs text-text-secondary/60">Product preview coming soon</p>
+                <Monitor size={24} className="text-text-muted/50" />
+                <p className="font-mono text-xs text-text-muted">Product preview coming soon</p>
               </div>
             </SectionReveal>
           </div>
         </section>
       ))}
 
-      {/* ===== INTEGRATIONS (light) ===== */}
+      {/* ===== INTEGRATIONS (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -258,7 +264,7 @@ export default function PlatformPage() {
             <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               Connects to the systems you already use
             </h2>
-            <p className="mt-4 max-w-xl text-text-secondary">
+            <p className="mt-4 max-w-xl text-text-body">
               Sovvrn reads from your POS, labor tools, review platforms, and accounting software. If your system has an API, we can connect to it.
             </p>
           </SectionReveal>
@@ -277,7 +283,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ===== FAQ (light) ===== */}
+      {/* ===== FAQ (off-white) ===== */}
       <section className="bg-surface">
         <FAQSection
           title="Platform questions"
@@ -289,14 +295,14 @@ export default function PlatformPage() {
       <section className="section-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">Ready to see the full platform?</h2>
-            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
+            <h2 className="text-3xl font-bold md:text-4xl">Ready to see the full platform?</h2>
+            <p className="mx-auto mt-4 max-w-lg text-dark-text-body">
               Book a 20-minute demo and we will walk you through every capability with your actual use case in mind.
             </p>
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>

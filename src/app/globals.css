@@ -15,11 +15,18 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-text-secondary: var(--text-secondary);
+  --color-text-body: var(--text-body);
+  --color-text-heading: var(--text-heading);
+  --color-text-card-title: var(--text-card-title);
+  --color-text-muted: var(--text-muted);
   --color-dark-bg: var(--dark-bg);
   --color-dark-surface: var(--dark-surface);
   --color-dark-border: var(--dark-border);
   --color-dark-text: var(--dark-text);
   --color-dark-text-secondary: var(--dark-text-secondary);
+  --color-dark-text-body: var(--dark-text-body);
+  --color-wash-blue: var(--wash-blue);
+  --color-wash-warm: var(--wash-warm);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-heading: var(--font-sans);
@@ -49,23 +56,34 @@
 }
 
 :root {
-  /* Sovvrn Light Theme */
-  --background: #FAFAFA;
+  /* Sovvrn Light Theme — Typography hierarchy */
+  --background: #FFFFFF;
   --foreground: #1A1A2E;
-  --surface: #F3F4F6;
+  --text-heading: #1A1A2E;
+  --text-card-title: #2D3748;
+  --text-body: #4A5568;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+
+  /* Surfaces */
+  --surface: #FAFAFA;
   --surface-foreground: #1A1A2E;
+  --wash-blue: #F0F6FF;
+  --wash-warm: #F5F5F0;
   --border-subtle: #E5E7EB;
+
+  /* Accents */
   --accent-blue: #4E8AE6;
   --accent-gold: #D4A853;
   --success: #3EBE7A;
   --warning: #E88B5C;
-  --text-secondary: #6B7280;
 
   /* Dark section tokens */
   --dark-bg: #0C0F14;
   --dark-surface: #1A1F2E;
   --dark-border: #2A3040;
-  --dark-text: #E8ECF4;
+  --dark-text: #FFFFFF;
+  --dark-text-body: #CBD5E1;
   --dark-text-secondary: #8B93A7;
 
   /* shadcn mappings */
@@ -75,11 +93,11 @@
   --popover-foreground: #1A1A2E;
   --primary: #4E8AE6;
   --primary-foreground: #FFFFFF;
-  --secondary: #F3F4F6;
+  --secondary: #FAFAFA;
   --secondary-foreground: #1A1A2E;
-  --muted: #F3F4F6;
+  --muted: #FAFAFA;
   --muted-foreground: #6B7280;
-  --accent: #F3F4F6;
+  --accent: #FAFAFA;
   --accent-foreground: #1A1A2E;
   --destructive: #E88B5C;
   --border: #E5E7EB;
@@ -93,7 +111,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text-body;
     font-size: 16px;
     line-height: 1.7;
   }
@@ -101,25 +119,33 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2 {
     font-family: var(--font-sans);
     font-weight: 700;
     line-height: 1.2;
+    color: var(--text-heading);
+  }
+  h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-card-title);
   }
 }
 
-/* Dark section utility */
+/* Dark section utility — hero + final CTA only */
 .section-dark {
   background-color: var(--dark-bg);
+  color: var(--dark-text-body);
+}
+
+.section-dark h1,
+.section-dark h2 {
   color: var(--dark-text);
 }
 
-.section-dark .text-foreground {
+.section-dark h3 {
   color: var(--dark-text);
-}
-
-.section-dark .text-text-secondary {
-  color: var(--dark-text-secondary);
 }
 
 /* Card base styles */

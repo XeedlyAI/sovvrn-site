@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 interface NavLink {
@@ -18,11 +18,21 @@ interface HeaderProps {
 
 export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border-subtle bg-white/80 backdrop-blur-xl">
+    <header
+      className="sticky top-0 z-50 w-full border-b border-border-subtle bg-white/80 backdrop-blur-xl transition-shadow duration-200"
+      style={{ boxShadow: scrolled ? '0 1px 3px rgba(0,0,0,0.06)' : 'none' }}
+    >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-4">
-        <Link href="/" className="text-xl font-extrabold tracking-wider text-foreground">
+        <Link href="/" className="text-xl font-extrabold tracking-wider text-text-card-title">
           {brandName}
         </Link>
 
@@ -32,7 +42,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary transition-colors hover:text-foreground"
+              className="text-sm font-medium text-text-secondary transition-colors hover:text-text-heading"
             >
               {link.label}
             </Link>
@@ -40,7 +50,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
           {ctaLabel && ctaHref && (
             <Link
               href={ctaHref}
-              className="rounded-lg bg-accent-blue px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+              className="rounded-lg bg-accent-blue px-5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
             >
               {ctaLabel}
             </Link>
@@ -49,7 +59,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
         {/* Mobile Toggle */}
         <button
-          className="text-foreground md:hidden"
+          className="text-text-card-title md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -64,7 +74,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary hover:text-foreground"
+              className="text-sm font-medium text-text-secondary hover:text-text-heading"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}

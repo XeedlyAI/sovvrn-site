@@ -39,27 +39,26 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
-      {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden py-20 md:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
+      {/* ===== HERO (light — no dark on Contact) ===== */}
+      <section className="relative overflow-hidden bg-wash-blue py-20 md:py-24">
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Contact</p>
+            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Contact</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
               See Sovvrn in action
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-body">
               Book a 20-minute demo and we will walk through the platform with your specific operation in mind — your POS, your locations, your cost targets. Or just reach out with a question.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== FORM + INFO (light) ===== */}
+      {/* ===== FORM + INFO (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid gap-10 md:grid-cols-2">
@@ -76,25 +75,25 @@ export default function ContactPage() {
             <div className="space-y-6">
               <SectionReveal delay={0.1}>
                 <div className="card-light rounded-xl p-8">
-                  <h3 className="text-lg font-bold text-foreground">Or book directly</h3>
+                  <h3 className="text-lg font-bold">Or book directly</h3>
                   <p className="mt-2 text-sm text-text-secondary">
                     Pick a time that works for you. 20 minutes, no pressure.
                   </p>
                   {/* PLACEHOLDER: Calendly embed */}
                   <div className="placeholder-box mt-6 h-64 rounded-lg">
-                    <Monitor size={24} className="text-text-secondary/40" />
-                    <p className="font-mono text-xs text-text-secondary/60">Calendly embed coming soon</p>
+                    <Monitor size={24} className="text-text-muted/50" />
+                    <p className="font-mono text-xs text-text-muted">Calendly embed coming soon</p>
                   </div>
                 </div>
               </SectionReveal>
 
               <SectionReveal delay={0.2}>
                 <div className="card-light rounded-xl p-8">
-                  <h3 className="text-lg font-bold text-foreground">Get in touch</h3>
+                  <h3 className="text-lg font-bold">Get in touch</h3>
                   <div className="mt-6 space-y-4">
                     <div className="flex items-center gap-3">
                       <Mail size={18} className="text-accent-blue" />
-                      <a href="mailto:hello@sovvrn.com" className="text-sm text-text-secondary hover:text-foreground">
+                      <a href="mailto:hello@sovvrn.com" className="text-sm text-text-secondary hover:text-text-heading">
                         hello@sovvrn.com
                       </a>
                     </div>
@@ -115,7 +114,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ===== WHAT TO EXPECT (light bg-surface) ===== */}
+      {/* ===== WHAT TO EXPECT (off-white) ===== */}
       <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -141,8 +140,8 @@ export default function ContactPage() {
             ].map((item, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className="card-light rounded-xl p-6">
-                  <span className="font-mono text-2xl font-bold text-accent-blue/25">{item.step}</span>
-                  <h3 className="mt-2 text-lg font-bold text-foreground">{item.title}</h3>
+                  <span className="font-mono text-2xl font-bold text-accent-blue/20">{item.step}</span>
+                  <h3 className="mt-2 text-lg font-bold">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.description}</p>
                 </div>
               </SectionReveal>

@@ -140,12 +140,12 @@ export default function RestaurantsPage() {
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">For Restaurants</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight text-dark-text md:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
               The operations partner your restaurant chain deserves
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-secondary">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-body">
               AI-powered intelligence built for multi-unit restaurant operators. Track prime cost across every location, benchmark performance, capture missed calls, and get coached on what to fix — all before your first store visit.
             </p>
           </SectionReveal>
@@ -153,7 +153,7 @@ export default function RestaurantsPage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>
@@ -168,7 +168,7 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
-      {/* ===== PAIN POINTS + SOLUTIONS (light) ===== */}
+      {/* ===== PAIN POINTS + SOLUTIONS (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -184,10 +184,10 @@ export default function RestaurantsPage() {
                   <div className="flex items-start gap-4">
                     <point.icon size={24} className="mt-1 shrink-0 text-warning" />
                     <div>
-                      <h3 className="text-xl font-bold text-foreground">{point.title}</h3>
+                      <h3 className="text-xl font-bold">{point.title}</h3>
                       <p className="mt-3 text-sm leading-relaxed text-text-secondary">{point.problem}</p>
                       <div className="mt-4 rounded-lg border border-accent-blue/20 bg-accent-blue/5 p-4">
-                        <p className="flex items-start gap-2 text-sm leading-relaxed text-foreground">
+                        <p className="flex items-start gap-2 text-sm leading-relaxed text-text-body">
                           <MessageSquare size={16} className="mt-0.5 shrink-0 text-accent-blue" />
                           <span><strong className="text-accent-blue">Sovvrn:</strong> {point.solution}</span>
                         </p>
@@ -201,15 +201,15 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
-      {/* ===== KPIs TRACKED (light bg-surface) ===== */}
-      <section className="bg-surface py-16 md:py-20">
+      {/* ===== KPIs TRACKED (blue wash) ===== */}
+      <section className="bg-wash-blue py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">KPIs</p>
             <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
               The metrics restaurant operators actually need
             </h2>
-            <p className="mt-4 max-w-xl text-text-secondary">
+            <p className="mt-4 max-w-xl text-text-body">
               Tracked in real time, benchmarked across locations, and delivered proactively when something needs attention.
             </p>
           </SectionReveal>
@@ -218,7 +218,7 @@ export default function RestaurantsPage() {
               {kpis.map((kpi) => (
                 <div key={kpi.label} className="card-light rounded-xl p-5 text-center">
                   <kpi.icon size={24} className="mx-auto text-accent-blue" />
-                  <p className="mt-3 text-sm font-bold text-foreground">{kpi.label}</p>
+                  <p className="mt-3 text-sm font-bold text-text-card-title">{kpi.label}</p>
                 </div>
               ))}
             </div>
@@ -226,7 +226,7 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
-      {/* ===== CUSTOMER ARCHETYPES (light) ===== */}
+      {/* ===== CUSTOMER ARCHETYPES (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -244,8 +244,8 @@ export default function RestaurantsPage() {
                       {arc.name[0]}
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-foreground">{arc.name}</p>
-                      <p className="text-xs text-text-secondary">{arc.role} · {arc.locations}</p>
+                      <p className="text-sm font-bold text-text-card-title">{arc.name}</p>
+                      <p className="text-xs text-text-muted">{arc.role} · {arc.locations}</p>
                     </div>
                   </div>
                   <p className="flex-1 text-sm leading-relaxed text-text-secondary">{arc.description}</p>
@@ -267,7 +267,7 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
-      {/* ===== FAQ (light bg-surface) ===== */}
+      {/* ===== FAQ (off-white) ===== */}
       <section className="bg-surface">
         <FAQSection
           title="Restaurant-specific questions"
@@ -279,14 +279,14 @@ export default function RestaurantsPage() {
       <section className="section-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-bold text-dark-text md:text-4xl">Built by restaurant operators, for restaurant operators</h2>
-            <p className="mx-auto mt-4 max-w-lg text-dark-text-secondary">
+            <h2 className="text-3xl font-bold md:text-4xl">Built by restaurant operators, for restaurant operators</h2>
+            <p className="mx-auto mt-4 max-w-lg text-dark-text-body">
               Book a demo and see how Sovvrn handles your specific operation — your POS, your locations, your cost targets.
             </p>
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/85"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-8 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
               >
                 Book a Demo <ArrowRight size={16} />
               </Link>
