@@ -42,7 +42,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-6 space-y-5">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[#2D3748]">
+        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Full Name
         </label>
         <Input
@@ -50,12 +50,12 @@ export function ContactForm() {
           name="name"
           required
           placeholder="Your name"
-          className="h-11 border-[#E5E7EB] bg-white text-[#1A1A2E] placeholder:text-[#9CA3AF]"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-[#2D3748]">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Work Email
         </label>
         <Input
@@ -64,36 +64,36 @@ export function ContactForm() {
           type="email"
           required
           placeholder="you@company.com"
-          className="h-11 border-[#E5E7EB] bg-white text-[#1A1A2E] placeholder:text-[#9CA3AF]"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-[#2D3748]">
+        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Company
         </label>
         <Input
           id="company"
           name="company"
           placeholder="Your restaurant group or company"
-          className="h-11 border-[#E5E7EB] bg-white text-[#1A1A2E] placeholder:text-[#9CA3AF]"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="locations" className="mb-1.5 block text-sm font-medium text-[#2D3748]">
+        <label htmlFor="locations" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Number of Locations
         </label>
         <Input
           id="locations"
           name="locations"
           placeholder="e.g. 5"
-          className="h-11 border-[#E5E7EB] bg-white text-[#1A1A2E] placeholder:text-[#9CA3AF]"
+          className="h-11 border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-[#2D3748]">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-text-card-title">
           Message (optional)
         </label>
         <Textarea
@@ -101,7 +101,7 @@ export function ContactForm() {
           name="message"
           rows={4}
           placeholder="Tell us about your operation or ask a question"
-          className="border-[#E5E7EB] bg-white text-[#1A1A2E] placeholder:text-[#9CA3AF]"
+          className="border-border-subtle bg-background text-text-heading placeholder:text-text-muted"
         />
       </div>
 
@@ -114,10 +114,10 @@ export function ContactForm() {
       </button>
 
       {status === 'success' && (
-        <p className="text-sm text-[#3EBE7A]">Thank you! We will be in touch within one business day.</p>
+        <p className="text-sm text-success">Thank you! We will be in touch within one business day.</p>
       )}
       {status === 'error' && (
-        <p className="text-sm text-[#E88B5C]">Something went wrong. Please try again or email us directly.</p>
+        <p className="text-sm text-warning">Something went wrong. Please try again or email us directly.</p>
       )}
     </form>
   )

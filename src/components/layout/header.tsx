@@ -28,15 +28,11 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
   return (
     <header
-      className="sticky top-0 z-50 w-full transition-all duration-200"
-      style={{
-        backgroundColor: scrolled ? 'rgba(11, 17, 32, 0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(30, 41, 59, 0.5)' : '1px solid transparent',
-      }}
+      className="sticky top-0 z-50 w-full border-b border-border-subtle bg-white/80 backdrop-blur-xl transition-shadow duration-200"
+      style={{ boxShadow: scrolled ? '0 1px 3px rgba(0,0,0,0.06)' : 'none' }}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-4">
-        <Link href="/" className="font-heading text-xl font-medium tracking-wider text-white">
+        <Link href="/" className="text-xl font-extrabold tracking-wider text-text-card-title">
           {brandName}
         </Link>
 
@@ -46,7 +42,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[#CBD5E1] transition-colors hover:text-white"
+              className="text-sm font-medium text-text-secondary transition-colors hover:text-text-heading"
             >
               {link.label}
             </Link>
@@ -63,7 +59,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
         {/* Mobile Toggle */}
         <button
-          className="text-white md:hidden"
+          className="text-text-card-title md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -73,12 +69,12 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="flex flex-col gap-4 border-t border-[#1E293B] bg-[#0B1120] px-5 py-5 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-border-subtle bg-white px-5 py-5 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[#CBD5E1] hover:text-white"
+              className="text-sm font-medium text-text-secondary hover:text-text-heading"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}

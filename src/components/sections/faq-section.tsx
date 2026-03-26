@@ -39,23 +39,19 @@ export function FAQSection({ title = 'FAQ', items }: FAQSectionProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-[800px] px-5">
-        {/* Heading floats on dark background */}
-        <h2 className="mb-10 font-heading text-3xl font-medium tracking-tight text-white md:text-4xl">{title}</h2>
-        {/* Accordion inside a white card */}
-        <div className="content-card p-8 md:p-10">
-          <Accordion className="w-full">
-            {items.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-base font-semibold text-[#2D3748]">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-[#4A5568]">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-text-heading md:text-4xl">{title}</h2>
+        <Accordion className="w-full">
+          {items.map((item, index) => (
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left text-base font-semibold text-text-card-title">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-text-body">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   )
