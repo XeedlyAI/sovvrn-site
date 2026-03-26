@@ -3,6 +3,11 @@ import Link from 'next/link'
 import { serviceSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
 import { FAQSection } from '@/components/sections/faq-section'
+import { CommandCenterSvg } from '@/components/placeholders/command-center-svg'
+import { MorningBriefingSvg } from '@/components/placeholders/morning-briefing-svg'
+import { VoiceAiSvg } from '@/components/placeholders/voice-ai-svg'
+import { ChartPlaceholderSvg } from '@/components/placeholders/chart-placeholder-svg'
+import { LocationGridSvg } from '@/components/placeholders/location-grid-svg'
 import {
   ArrowRight,
   BarChart3,
@@ -13,7 +18,6 @@ import {
   Phone,
   Star,
   Layers,
-  Monitor,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -47,6 +51,7 @@ const capabilities = [
       'AI analysis traces every signal to root causes, not just symptoms',
       'Drill deeper into any signal with one click to see supporting data',
     ],
+    placeholder: 'command-center' as const,
   },
   {
     icon: MessageSquare,
@@ -60,6 +65,7 @@ const capabilities = [
       'Proactive recommendations based on trends the AI detects',
       'Context-aware — understands your brands, your locations, your benchmarks',
     ],
+    placeholder: 'chart' as const,
   },
   {
     icon: MapPin,
@@ -73,6 +79,7 @@ const capabilities = [
       'Health scores that weight multiple KPIs into a single signal',
       'Sortable, filterable, and drillable to any individual location',
     ],
+    placeholder: 'location-grid' as const,
   },
   {
     icon: DollarSign,
@@ -86,6 +93,7 @@ const capabilities = [
       'AI analysis of cost variance — not just "costs went up" but "why"',
       'Benchmark against network averages across your portfolio',
     ],
+    placeholder: 'chart' as const,
   },
   {
     icon: Send,
@@ -99,6 +107,7 @@ const capabilities = [
       'Reply to the SMS to ask follow-up questions via AI coach',
       'Separate briefings per brand for portfolio operators',
     ],
+    placeholder: 'morning-briefing' as const,
   },
   {
     icon: Phone,
@@ -112,6 +121,7 @@ const capabilities = [
       'Captures catering leads and forwards to the right manager',
       'Call transcripts and analytics in your Sovvrn dashboard',
     ],
+    placeholder: 'voice-ai' as const,
   },
   {
     icon: Star,
@@ -125,6 +135,7 @@ const capabilities = [
       'Sentiment analysis and trend detection per location',
       'Alerts when review velocity drops or negative sentiment spikes',
     ],
+    placeholder: 'chart' as const,
   },
   {
     icon: Layers,
@@ -138,6 +149,7 @@ const capabilities = [
       'Cross-brand benchmarking to identify best practices',
       'Role-based access so brand GMs see only their brand',
     ],
+    placeholder: 'chart' as const,
   },
 ]
 
@@ -171,10 +183,28 @@ const faqItems = [
   },
 ]
 
-// Give command-center a blue wash background
-const getBgClass = (index: number) => {
-  if (index === 0) return 'bg-wash-blue'
-  return index % 2 === 0 ? 'bg-surface' : ''
+function CapabilityPlaceholder({ type }: { type: string }) {
+  switch (type) {
+    case 'command-center':
+      return <CommandCenterSvg className="w-full" />
+    case 'morning-briefing':
+      return (
+        <div className="flex justify-center">
+          <MorningBriefingSvg className="h-[360px] w-auto md:h-[440px]" />
+        </div>
+      )
+    case 'voice-ai':
+      return (
+        <div className="flex justify-center">
+          <VoiceAiSvg className="h-[280px] w-auto md:h-[360px]" />
+        </div>
+      )
+    case 'location-grid':
+      return <LocationGridSvg className="w-full" />
+    case 'chart':
+    default:
+      return <ChartPlaceholderSvg className="w-full" />
+  }
 }
 
 export default function PlatformPage() {
@@ -185,21 +215,21 @@ export default function PlatformPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(svcSchema) }}
       />
 
-      {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden py-20 md:py-28">
+      {/* ===== HERO (dark canvas, no card) ===== */}
+      <section className="relative overflow-hidden py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
-            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Platform</p>
+            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Platform</p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
+            <h1 className="max-w-3xl font-heading text-4xl font-medium leading-tight md:text-6xl">
               Everything your POS doesn&apos;t tell you
             </h1>
           </SectionReveal>
           <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-body">
-              Sovvrn sits on top of your existing systems and adds the intelligence layer that turns raw data into coached decisions. Here is a full walkthrough of every capability.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#CBD5E1]">
+              Sovvrn sits on top of your existing systems and adds the <span className="highlight-blue">intelligence layer</span> that turns raw data into coached decisions. Here is a full walkthrough of every capability.
             </p>
           </SectionReveal>
           <SectionReveal delay={0.3}>
@@ -215,88 +245,86 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ===== CAPABILITIES (alternating white/off-white, first gets blue wash) ===== */}
+      {/* ===== CAPABILITIES ===== */}
       {capabilities.map((cap, i) => (
         <section
           key={cap.id}
           id={cap.id}
-          className={`py-16 md:py-20 ${getBgClass(i)}`}
+          className="py-12 md:py-20"
         >
           <div className="mx-auto max-w-[1200px] px-5">
+            {/* Heading on dark background */}
             <SectionReveal>
               <div className="flex items-start gap-4">
                 <cap.icon size={28} className="mt-1 shrink-0 text-accent-blue" />
                 <div>
                   <p className="font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">{cap.subtitle}</p>
-                  <h2 className="mt-2 text-3xl font-bold md:text-4xl">{cap.title}</h2>
+                  <h2 className="mt-2 font-heading text-3xl font-medium md:text-4xl">{cap.title}</h2>
                 </div>
               </div>
             </SectionReveal>
+            {/* Content in white card */}
             <SectionReveal delay={0.1}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-body">{cap.description}</p>
-            </SectionReveal>
-            <SectionReveal delay={0.2}>
-              <ul className="mt-8 grid gap-3 md:grid-cols-2">
-                {cap.details.map((detail, j) => (
-                  <li key={j} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" />
-                    <span className="text-sm leading-relaxed text-text-secondary">{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </SectionReveal>
-            <SectionReveal delay={0.3}>
-              {/* PLACEHOLDER: product screenshot/mockup area */}
-              <div className="placeholder-box mt-8 h-48 rounded-lg md:h-64">
-                <Monitor size={24} className="text-text-muted/50" />
-                <p className="font-mono text-xs text-text-muted">Product preview coming soon</p>
+              <div className="content-card mt-8 rounded-2xl p-8 md:p-10">
+                <p className="max-w-2xl text-base leading-relaxed text-[#4A5568]">{cap.description}</p>
+                <ul className="mt-8 grid gap-3 md:grid-cols-2">
+                  {cap.details.map((detail, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" />
+                      <span className="text-sm leading-relaxed text-[#6B7280]">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <CapabilityPlaceholder type={cap.placeholder} />
+                </div>
               </div>
             </SectionReveal>
           </div>
         </section>
       ))}
 
-      {/* ===== INTEGRATIONS (white) ===== */}
-      <section className="py-16 md:py-20">
+      {/* ===== INTEGRATIONS ===== */}
+      <section className="py-12 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Integrations</p>
-            <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
+            <h2 className="max-w-2xl font-heading text-3xl font-medium md:text-4xl">
               Connects to the systems you already use
             </h2>
-            <p className="mt-4 max-w-xl text-text-body">
+            <p className="mt-4 max-w-xl text-[#CBD5E1]">
               Sovvrn reads from your POS, labor tools, review platforms, and accounting software. If your system has an API, we can connect to it.
             </p>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <div className="mt-10 flex flex-wrap gap-3">
-              {integrations.map((name) => (
-                <span
-                  key={name}
-                  className="rounded-lg border border-border-subtle bg-white px-4 py-2.5 font-mono text-xs font-medium text-text-secondary"
-                >
-                  {name}
-                </span>
-              ))}
+            <div className="content-card mt-10 rounded-2xl p-8 md:p-10">
+              <div className="flex flex-wrap gap-3">
+                {integrations.map((name) => (
+                  <span
+                    key={name}
+                    className="rounded-lg border border-[#E5E7EB] bg-[#FAFAFA] px-4 py-2.5 font-mono text-xs font-medium text-[#6B7280]"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ===== FAQ (off-white) ===== */}
-      <section className="bg-surface">
-        <FAQSection
-          title="Platform questions"
-          items={faqItems}
-        />
-      </section>
+      {/* ===== FAQ ===== */}
+      <FAQSection
+        title="Platform questions"
+        items={faqItems}
+      />
 
-      {/* ===== CTA (dark) ===== */}
-      <section className="section-dark py-16 md:py-20">
+      {/* ===== CTA (dark canvas, no card) ===== */}
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
-            <h2 className="text-3xl font-bold md:text-4xl">Ready to see the full platform?</h2>
-            <p className="mx-auto mt-4 max-w-lg text-dark-text-body">
+            <h2 className="font-heading text-3xl font-medium md:text-4xl">Ready to see the full platform?</h2>
+            <p className="mx-auto mt-4 max-w-lg text-[#CBD5E1]">
               Book a 20-minute demo and we will walk you through every capability with your actual use case in mind.
             </p>
             <div className="mt-8">

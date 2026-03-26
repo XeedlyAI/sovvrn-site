@@ -25,11 +25,11 @@
   --color-dark-text: var(--dark-text);
   --color-dark-text-secondary: var(--dark-text-secondary);
   --color-dark-text-body: var(--dark-text-body);
-  --color-wash-blue: var(--wash-blue);
-  --color-wash-warm: var(--wash-warm);
+  --color-canvas: var(--canvas);
+  --color-canvas-muted: var(--canvas-muted);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-heading);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -56,35 +56,39 @@
 }
 
 :root {
-  /* Sovvrn Light Theme — Typography hierarchy */
-  --background: #FFFFFF;
-  --foreground: #1A1A2E;
+  /* Dark canvas — the page background */
+  --canvas: #0B1120;
+  --canvas-muted: #141B2D;
+  --background: #0B1120;
+  --foreground: #CBD5E1;
+
+  /* Text on white cards (light surfaces) */
   --text-heading: #1A1A2E;
   --text-card-title: #2D3748;
   --text-body: #4A5568;
   --text-secondary: #6B7280;
   --text-muted: #9CA3AF;
 
+  /* Text on dark canvas */
+  --dark-text: #FFFFFF;
+  --dark-text-body: #CBD5E1;
+  --dark-text-secondary: #64748B;
+
   /* Surfaces */
   --surface: #FAFAFA;
   --surface-foreground: #1A1A2E;
-  --wash-blue: #F0F6FF;
-  --wash-warm: #F5F5F0;
   --border-subtle: #E5E7EB;
+
+  /* Dark canvas surfaces */
+  --dark-bg: #0B1120;
+  --dark-surface: #141B2D;
+  --dark-border: #1E293B;
 
   /* Accents */
   --accent-blue: #4E8AE6;
   --accent-gold: #D4A853;
   --success: #3EBE7A;
   --warning: #E88B5C;
-
-  /* Dark section tokens */
-  --dark-bg: #0C0F14;
-  --dark-surface: #1A1F2E;
-  --dark-border: #2A3040;
-  --dark-text: #FFFFFF;
-  --dark-text-body: #CBD5E1;
-  --dark-text-secondary: #8B93A7;
 
   /* shadcn mappings */
   --card: #FFFFFF;
@@ -93,15 +97,15 @@
   --popover-foreground: #1A1A2E;
   --primary: #4E8AE6;
   --primary-foreground: #FFFFFF;
-  --secondary: #FAFAFA;
-  --secondary-foreground: #1A1A2E;
-  --muted: #FAFAFA;
-  --muted-foreground: #6B7280;
-  --accent: #FAFAFA;
-  --accent-foreground: #1A1A2E;
+  --secondary: #141B2D;
+  --secondary-foreground: #CBD5E1;
+  --muted: #141B2D;
+  --muted-foreground: #64748B;
+  --accent: #141B2D;
+  --accent-foreground: #CBD5E1;
   --destructive: #E88B5C;
-  --border: #E5E7EB;
-  --input: #E5E7EB;
+  --border: #1E293B;
+  --input: #1E293B;
   --ring: #4E8AE6;
   --radius: 0.625rem;
 }
@@ -111,7 +115,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-text-body;
+    background-color: var(--canvas);
+    color: var(--dark-text-body);
     font-size: 16px;
     line-height: 1.7;
   }
@@ -119,23 +124,119 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+  /* On dark canvas (default page background) */
   h1, h2 {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--text-heading);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--dark-text);
   }
   h3, h4, h5, h6 {
-    font-family: var(--font-sans);
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-weight: 500;
     line-height: 1.2;
-    color: var(--text-card-title);
+    color: var(--dark-text);
   }
 }
 
-/* Dark section utility — hero + final CTA only */
+/* ========== WHITE CONTENT CARDS ========== */
+.content-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Text inside white cards inherits light colors */
+.content-card h1,
+.content-card h2 {
+  color: var(--text-heading);
+}
+.content-card h3,
+.content-card h4 {
+  color: var(--text-card-title);
+}
+.content-card p {
+  color: var(--text-body);
+}
+
+/* Interactive cards get hover */
+.content-card-hover {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.content-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.content-card-hover h1,
+.content-card-hover h2 {
+  color: var(--text-heading);
+}
+.content-card-hover h3,
+.content-card-hover h4 {
+  color: var(--text-card-title);
+}
+.content-card-hover p {
+  color: var(--text-body);
+}
+
+/* Legacy card-light for backward compat */
+.card-light {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card-light h3,
+.card-light h4 {
+  color: var(--text-card-title);
+}
+
+/* Dark surface card (for dark bg accents like stat bar) */
+.card-dark {
+  background-color: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 16px;
+}
+
+/* ========== PASTEL PHRASE HIGHLIGHTS ========== */
+.highlight-blue {
+  background-color: rgba(78, 138, 230, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlight-gold {
+  background-color: rgba(212, 168, 83, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlight-green {
+  background-color: rgba(62, 190, 122, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ========== SECTION UTILITIES ========== */
+
+/* Section with dark canvas background — default, no class needed */
+/* But kept for explicit use */
 .section-dark {
-  background-color: var(--dark-bg);
+  background-color: var(--canvas);
   color: var(--dark-text-body);
 }
 
@@ -148,41 +249,8 @@
   color: var(--dark-text);
 }
 
-/* Card base styles */
-.card-light {
-  background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.card-light:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.card-dark {
-  background-color: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.card-dark:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Polished placeholder boxes */
-.placeholder-box {
-  background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  border-radius: 0.5rem;
-}
-
-.section-dark .placeholder-box {
-  background: linear-gradient(135deg, #1A1F2E, #13161D);
+/* Placeholder SVG containers */
+.placeholder-svg {
+  border-radius: 12px;
+  overflow: hidden;
 }
