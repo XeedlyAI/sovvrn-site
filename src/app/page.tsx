@@ -189,10 +189,12 @@ export default function HomePage() {
 
           {/* Social proof bar — full width below both columns */}
           <SectionReveal delay={0.5}>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 border-t border-dark-border/60 pt-8 md:mt-16 md:gap-14">
-              <StatCounter value="200" suffix="+" label="Locations Monitored" />
-              <StatCounter value="99.9" suffix="%" label="Platform Uptime" />
-              <StatCounter value="50,000" suffix="+" label="Signals Delivered" />
+            <div className="stats-topo-bg mt-12 pt-12 pb-4 md:mt-16">
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+                <StatCounter value="200" suffix="+" label="Locations Monitored" />
+                <StatCounter value="99.9" suffix="%" label="Platform Uptime" />
+                <StatCounter value="50,000" suffix="+" label="Signals Delivered" />
+              </div>
             </div>
           </SectionReveal>
         </div>
