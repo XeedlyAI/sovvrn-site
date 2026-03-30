@@ -137,49 +137,55 @@ export default function RestaurantsPage() {
       <section className="section-dark relative overflow-hidden py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
-          <SectionReveal>
-            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">For Restaurants</p>
-          </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
-              The operations partner your restaurant chain deserves
-            </h1>
-          </SectionReveal>
-          <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-body">
-              AI-powered intelligence built for multi-unit restaurant operators. Track prime cost across every location, benchmark performance, capture missed calls, and get coached on what to fix — all before your first store visit.
-            </p>
-          </SectionReveal>
-          <SectionReveal delay={0.3}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
-              >
-                Book a Demo <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/platform"
-                className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-6 py-3 text-sm font-semibold text-dark-text transition-all hover:border-dark-text-secondary/40 hover:bg-dark-surface"
-              >
-                See the Full Platform
-              </Link>
+          {/* Two-column layout: text left, screenshot right */}
+          <div className="grid items-center gap-10 md:grid-cols-[45%_55%] md:gap-12">
+            {/* Left column — text + CTAs */}
+            <div>
+              <SectionReveal>
+                <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">For Restaurants</p>
+              </SectionReveal>
+              <SectionReveal delay={0.1}>
+                <h1 className="text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
+                  The operations partner your restaurant chain deserves
+                </h1>
+              </SectionReveal>
+              <SectionReveal delay={0.2}>
+                <p className="mt-6 text-lg leading-relaxed text-dark-text-body">
+                  AI-powered intelligence built for multi-unit restaurant operators. Track prime cost across every location, benchmark performance, capture missed calls, and get coached on what to fix — all before your first store visit.
+                </p>
+              </SectionReveal>
+              <SectionReveal delay={0.3}>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
+                  >
+                    Book a Demo <ArrowRight size={16} />
+                  </Link>
+                  <Link
+                    href="/platform"
+                    className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-6 py-3 text-sm font-semibold text-dark-text transition-all hover:border-dark-text-secondary/40 hover:bg-dark-surface"
+                  >
+                    See the Full Platform
+                  </Link>
+                </div>
+              </SectionReveal>
             </div>
-          </SectionReveal>
 
-          {/* Hero product screenshot */}
-          <SectionReveal delay={0.4}>
-            <div className="mt-14">
-              <ScreenshotFrame
-                src="/images/screenshots/dashboard-kpi-insight.png"
-                alt="Sovvrn dashboard showing KPI cards, AI insights, and cross-location intelligence for restaurant operators"
-                width={3000}
-                height={2000}
-                perspective
-                className="section-dark-screenshot"
-              />
-            </div>
-          </SectionReveal>
+            {/* Right column — product screenshot */}
+            <SectionReveal delay={0.4}>
+              <div className="md:mr-[-40px]">
+                <ScreenshotFrame
+                  src="/images/screenshots/dashboard-kpi-insight.png"
+                  alt="Sovvrn dashboard showing KPI cards, AI insights, and cross-location intelligence for restaurant operators"
+                  width={3000}
+                  height={2000}
+                  perspective
+                  className="section-dark-screenshot"
+                />
+              </div>
+            </SectionReveal>
+          </div>
         </div>
       </section>
 
