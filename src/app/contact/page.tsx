@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { localBusinessSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
 import { ContactForm } from '@/components/sections/contact-form'
@@ -64,7 +63,7 @@ export default function ContactPage() {
           <div className="grid gap-10 md:grid-cols-2">
             {/* Contact Form */}
             <SectionReveal>
-              <div className="card-light rounded-xl p-8">
+              <div className="card-light rounded-xl p-8 transition-shadow duration-200 hover:shadow-lg">
                 <h2 className="text-2xl font-bold">Request a demo</h2>
                 <p className="mt-2 text-sm text-text-secondary">Fill out the form and we will be in touch within one business day.</p>
                 <ContactForm />
@@ -74,7 +73,7 @@ export default function ContactPage() {
             {/* Contact Info + Calendly */}
             <div className="space-y-6">
               <SectionReveal delay={0.1}>
-                <div className="card-light rounded-xl p-8">
+                <div className="card-light rounded-xl p-8 transition-shadow duration-200 hover:shadow-lg">
                   <h3 className="text-lg font-bold">Or book directly</h3>
                   <p className="mt-2 text-sm text-text-secondary">
                     Pick a time that works for you. 20 minutes, no pressure.
@@ -88,12 +87,12 @@ export default function ContactPage() {
               </SectionReveal>
 
               <SectionReveal delay={0.2}>
-                <div className="card-light rounded-xl p-8">
+                <div className="card-light rounded-xl p-8 transition-shadow duration-200 hover:shadow-lg">
                   <h3 className="text-lg font-bold">Get in touch</h3>
                   <div className="mt-6 space-y-4">
                     <div className="flex items-center gap-3">
                       <Mail size={18} className="text-accent-blue" />
-                      <a href="mailto:hello@sovvrn.com" className="text-sm text-text-secondary hover:text-text-heading">
+                      <a href="mailto:hello@sovvrn.com" className="text-sm text-text-secondary transition-colors hover:text-text-heading">
                         hello@sovvrn.com
                       </a>
                     </div>
@@ -139,7 +138,7 @@ export default function ContactPage() {
               },
             ].map((item, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-light rounded-xl p-6">
+                <div className="card-light rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <span className="font-mono text-2xl font-bold text-accent-blue/20">{item.step}</span>
                   <h3 className="mt-2 text-lg font-bold">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.description}</p>

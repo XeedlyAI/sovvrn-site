@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { serviceSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
+import { ScreenshotFrame } from '@/components/sections/screenshot-frame'
 import { FAQSection } from '@/components/sections/faq-section'
 import {
   ArrowRight,
@@ -165,6 +166,20 @@ export default function RestaurantsPage() {
               </Link>
             </div>
           </SectionReveal>
+
+          {/* Hero product screenshot */}
+          <SectionReveal delay={0.4}>
+            <div className="mt-14">
+              <ScreenshotFrame
+                src="/images/screenshots/dashboard-kpi-insight.png"
+                alt="Sovvrn dashboard showing KPI cards, AI insights, and cross-location intelligence for restaurant operators"
+                width={3000}
+                height={2000}
+                perspective
+                className="section-dark-screenshot"
+              />
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
@@ -201,6 +216,23 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
+      {/* ===== LOCATION ANALYSIS SCREENSHOT (between pain points and KPIs) ===== */}
+      <section className="bg-surface py-16 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-5">
+          <SectionReveal>
+            <ScreenshotFrame
+              src="/images/screenshots/location-analysis-overlay.png"
+              alt="Location detail drawer with AI analysis overlay showing deep intelligence at the individual store level"
+              width={3000}
+              height={2000}
+            />
+            <p className="mt-4 text-center text-sm text-text-muted">
+              AI-powered location intelligence — from network overview to individual store analysis
+            </p>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ===== KPIs TRACKED (blue wash) ===== */}
       <section className="bg-wash-blue py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
@@ -213,16 +245,16 @@ export default function RestaurantsPage() {
               Tracked in real time, benchmarked across locations, and delivered proactively when something needs attention.
             </p>
           </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {kpis.map((kpi) => (
-                <div key={kpi.label} className="card-light rounded-xl p-5 text-center">
+          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {kpis.map((kpi, i) => (
+              <SectionReveal key={kpi.label} delay={i * 0.05}>
+                <div className="card-light rounded-xl p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <kpi.icon size={24} className="mx-auto text-accent-blue" />
                   <p className="mt-3 text-sm font-bold text-text-card-title">{kpi.label}</p>
                 </div>
-              ))}
-            </div>
-          </SectionReveal>
+              </SectionReveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -238,7 +270,7 @@ export default function RestaurantsPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {archetypes.map((arc, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-light flex h-full flex-col rounded-xl p-8">
+                <div className="card-light flex h-full flex-col rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-blue/10 text-lg font-bold text-accent-blue">
                       {arc.name[0]}

@@ -61,7 +61,7 @@ export default function BlogPage() {
           <div className="grid gap-6 md:grid-cols-2">
             {posts.map((post, i) => (
               <SectionReveal key={post.slug} delay={i * 0.1}>
-                <article className="card-light group flex h-full flex-col rounded-xl p-8">
+                <article className="card-light group flex h-full flex-col rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <div className="flex items-center gap-3">
                     <span className="rounded-md bg-accent-blue/10 px-2.5 py-1 font-mono text-xs font-medium text-accent-blue">
                       {post.category}
@@ -85,7 +85,7 @@ export default function BlogPage() {
 
           {/* Empty state message */}
           <SectionReveal delay={0.2}>
-            <div className="card-light mt-10 rounded-xl p-8 text-center">
+            <div className="card-light mt-10 rounded-xl p-8 text-center transition-shadow duration-200 hover:shadow-lg">
               <p className="text-text-secondary">
                 More articles coming soon. Want to be notified?{' '}
                 <Link href="/contact" className="text-accent-blue hover:underline">

@@ -1,8 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 interface NavLink {
   label: string
@@ -17,6 +19,7 @@ interface HeaderProps {
 }
 
 export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) {
+  const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -25,6 +28,8 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const isActive = (href: string) => pathname === href
 
   return (
     <header
@@ -42,7 +47,12 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary transition-colors hover:text-text-heading"
+              className={cn(
+                'text-sm font-medium transition-colors hover:text-text-heading',
+                isActive(link.href)
+                  ? 'text-accent-blue'
+                  : 'text-text-secondary'
+              )}
             >
               {link.label}
             </Link>
@@ -74,7 +84,12 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary hover:text-text-heading"
+              className={cn(
+                'text-sm font-medium hover:text-text-heading',
+                isActive(link.href)
+                  ? 'text-accent-blue'
+                  : 'text-text-secondary'
+              )}
               onClick={() => setMobileOpen(false)}
             >
               {link.label}

@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { organizationSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
-import { ArrowRight, Target, Eye, Zap, Shield, Monitor } from 'lucide-react'
+import { ScreenshotFrame } from '@/components/sections/screenshot-frame'
+import { ArrowRight, Target, Eye, Zap, Shield } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Sovvrn | Our Story & Mission',
@@ -93,11 +94,12 @@ export default function AboutPage() {
               </div>
             </SectionReveal>
             <SectionReveal delay={0.2}>
-              {/* PLACEHOLDER: founder photo or abstract brand visual */}
-              <div className="placeholder-box h-full min-h-[300px] rounded-xl">
-                <Monitor size={28} className="text-text-muted/50" />
-                <p className="font-mono text-xs text-text-muted">Team visual coming soon</p>
-              </div>
+              <ScreenshotFrame
+                src="/images/screenshots/command-center-flagged.png"
+                alt="Sovvrn Command Center showing a flagged signal with AI analysis and follow-up question — intelligence in action"
+                width={3000}
+                height={2000}
+              />
             </SectionReveal>
           </div>
         </div>
@@ -159,7 +161,7 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {values.map((value, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-light rounded-xl p-8">
+                <div className="card-light rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <value.icon size={24} className="text-accent-blue" />
                   <h3 className="mt-4 text-lg font-bold">{value.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{value.description}</p>
@@ -181,7 +183,7 @@ export default function AboutPage() {
             {/* PLACEHOLDER: team members */}
             <div className="mt-10 grid gap-5 sm:grid-cols-3">
               {[1, 2, 3].map((n) => (
-                <div key={n} className="card-light rounded-xl p-6 text-center">
+                <div key={n} className="card-light rounded-xl p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-accent-blue/10">
                     <span className="font-mono text-sm text-text-muted">?</span>
                   </div>

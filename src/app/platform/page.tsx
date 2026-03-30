@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { serviceSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
+import { ScreenshotFrame } from '@/components/sections/screenshot-frame'
 import { FAQSection } from '@/components/sections/faq-section'
 import {
   ArrowRight,
@@ -13,7 +14,6 @@ import {
   Phone,
   Star,
   Layers,
-  Monitor,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -47,6 +47,8 @@ const capabilities = [
       'AI analysis traces every signal to root causes, not just symptoms',
       'Drill deeper into any signal with one click to see supporting data',
     ],
+    screenshot: '/images/screenshots/command-center-signal.png',
+    screenshotAlt: 'Sovvrn Command Center showing three-panel layout with signal list, AI analysis, and context sidebar',
   },
   {
     icon: MessageSquare,
@@ -60,6 +62,8 @@ const capabilities = [
       'Proactive recommendations based on trends the AI detects',
       'Context-aware — understands your brands, your locations, your benchmarks',
     ],
+    screenshot: '/images/screenshots/dashboard-revenue-analysis.png',
+    screenshotAlt: 'Sovvrn AI slide-out panel showing deep revenue analysis and coaching recommendations',
   },
   {
     icon: MapPin,
@@ -73,6 +77,8 @@ const capabilities = [
       'Health scores that weight multiple KPIs into a single signal',
       'Sortable, filterable, and drillable to any individual location',
     ],
+    screenshot: '/images/screenshots/location-intelligence-table.png',
+    screenshotAlt: 'Location scorecard table with status indicators, AI insight popovers, and performance metrics',
   },
   {
     icon: DollarSign,
@@ -86,6 +92,8 @@ const capabilities = [
       'AI analysis of cost variance — not just "costs went up" but "why"',
       'Benchmark against network averages across your portfolio',
     ],
+    screenshot: '/images/screenshots/location-drawer-detail.png',
+    screenshotAlt: 'Location detail drawer showing prime cost MTD trend, food cost breakdown, and labor cost analysis',
   },
   {
     icon: Send,
@@ -99,6 +107,8 @@ const capabilities = [
       'Reply to the SMS to ask follow-up questions via AI coach',
       'Separate briefings per brand for portfolio operators',
     ],
+    screenshot: '/images/screenshots/morning-briefing-expanded.png',
+    screenshotAlt: 'Expanded AI coaching narrative with Revenue Health and Cost Position sections in the morning briefing',
   },
   {
     icon: Phone,
@@ -112,6 +122,8 @@ const capabilities = [
       'Captures catering leads and forwards to the right manager',
       'Call transcripts and analytics in your Sovvrn dashboard',
     ],
+    screenshot: '/images/screenshots/voice-intelligence-dashboard.png',
+    screenshotAlt: 'Voice AI dashboard showing 2,109 calls handled, 84% AI resolution rate, and $34,980 phone revenue',
   },
   {
     icon: Star,
@@ -125,6 +137,8 @@ const capabilities = [
       'Sentiment analysis and trend detection per location',
       'Alerts when review velocity drops or negative sentiment spikes',
     ],
+    screenshot: '/images/screenshots/review-intelligence.png',
+    screenshotAlt: 'Review Intelligence dashboard with Google, Yelp, and Facebook review breakdown across locations',
   },
   {
     icon: Layers,
@@ -138,7 +152,16 @@ const capabilities = [
       'Cross-brand benchmarking to identify best practices',
       'Role-based access so brand GMs see only their brand',
     ],
+    screenshot: '/images/screenshots/locations-page-list.png',
+    screenshotAlt: 'Locations page showing 10 locations with status filters, On Track and Watch indicators, and expandable rows',
   },
+]
+
+const voiceSetupSteps = [
+  { src: '/images/screenshots/voice-setup-picker.png', alt: 'Voice setup — choose your voice agent' },
+  { src: '/images/screenshots/voice-setup-menu.png', alt: 'Voice setup — configure your menu' },
+  { src: '/images/screenshots/voice-setup-rules.png', alt: 'Voice setup — set call handling rules' },
+  { src: '/images/screenshots/voice-setup-activate.png', alt: 'Voice setup — activate your agent' },
 ]
 
 const integrations = [
@@ -216,45 +239,77 @@ export default function PlatformPage() {
       </section>
 
       {/* ===== CAPABILITIES (alternating white/off-white, first gets blue wash) ===== */}
-      {capabilities.map((cap, i) => (
-        <section
-          key={cap.id}
-          id={cap.id}
-          className={`py-16 md:py-20 ${getBgClass(i)}`}
-        >
-          <div className="mx-auto max-w-[1200px] px-5">
-            <SectionReveal>
-              <div className="flex items-start gap-4">
-                <cap.icon size={28} className="mt-1 shrink-0 text-accent-blue" />
-                <div>
-                  <p className="font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">{cap.subtitle}</p>
-                  <h2 className="mt-2 text-3xl font-bold md:text-4xl">{cap.title}</h2>
+      {capabilities.map((cap, i) => {
+        const isOdd = i % 2 === 0 // 0-indexed: even index = odd section (1st, 3rd, etc.)
+        const isVoiceAI = cap.id === 'voice-ai'
+
+        return (
+          <section
+            key={cap.id}
+            id={cap.id}
+            className={`py-16 md:py-20 ${getBgClass(i)}`}
+          >
+            <div className="mx-auto max-w-[1200px] px-5">
+              {/* Text + Screenshot in alternating layout */}
+              <div className={`flex flex-col gap-10 md:flex-row md:items-start ${!isOdd ? 'md:flex-row-reverse' : ''}`}>
+                {/* Text side (40%) */}
+                <div className="md:w-[40%]">
+                  <SectionReveal>
+                    <div className="flex items-start gap-4">
+                      <cap.icon size={28} className="mt-1 shrink-0 text-accent-blue" />
+                      <div>
+                        <p className="font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">{cap.subtitle}</p>
+                        <h2 className="mt-2 text-3xl font-bold md:text-4xl">{cap.title}</h2>
+                      </div>
+                    </div>
+                  </SectionReveal>
+                  <SectionReveal delay={0.1}>
+                    <p className="mt-6 text-base leading-relaxed text-text-body">{cap.description}</p>
+                  </SectionReveal>
+                  <SectionReveal delay={0.2}>
+                    <ul className="mt-8 grid gap-3">
+                      {cap.details.map((detail, j) => (
+                        <li key={j} className="flex items-start gap-3">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" />
+                          <span className="text-sm leading-relaxed text-text-secondary">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </SectionReveal>
+                </div>
+
+                {/* Screenshot side (60%) */}
+                <div className="md:w-[60%]">
+                  <SectionReveal delay={0.3}>
+                    <ScreenshotFrame
+                      src={cap.screenshot}
+                      alt={cap.screenshotAlt}
+                      width={3000}
+                      height={2000}
+                    />
+                    {/* Voice AI bonus: setup wizard thumbnails */}
+                    {isVoiceAI && (
+                      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                        {voiceSetupSteps.map((step) => (
+                          <div key={step.src} className="group cursor-pointer transition-transform duration-200 hover:scale-105">
+                            <ScreenshotFrame
+                              src={step.src}
+                              alt={step.alt}
+                              width={3000}
+                              height={2000}
+                              className="shadow-sm"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </SectionReveal>
                 </div>
               </div>
-            </SectionReveal>
-            <SectionReveal delay={0.1}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-body">{cap.description}</p>
-            </SectionReveal>
-            <SectionReveal delay={0.2}>
-              <ul className="mt-8 grid gap-3 md:grid-cols-2">
-                {cap.details.map((detail, j) => (
-                  <li key={j} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" />
-                    <span className="text-sm leading-relaxed text-text-secondary">{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </SectionReveal>
-            <SectionReveal delay={0.3}>
-              {/* PLACEHOLDER: product screenshot/mockup area */}
-              <div className="placeholder-box mt-8 h-48 rounded-lg md:h-64">
-                <Monitor size={24} className="text-text-muted/50" />
-                <p className="font-mono text-xs text-text-muted">Product preview coming soon</p>
-              </div>
-            </SectionReveal>
-          </div>
-        </section>
-      ))}
+            </div>
+          </section>
+        )
+      })}
 
       {/* ===== INTEGRATIONS (white) ===== */}
       <section className="py-16 md:py-20">
@@ -273,7 +328,7 @@ export default function PlatformPage() {
               {integrations.map((name) => (
                 <span
                   key={name}
-                  className="rounded-lg border border-border-subtle bg-white px-4 py-2.5 font-mono text-xs font-medium text-text-secondary"
+                  className="rounded-lg border border-border-subtle bg-white px-4 py-2.5 font-mono text-xs font-medium text-text-secondary transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   {name}
                 </span>
