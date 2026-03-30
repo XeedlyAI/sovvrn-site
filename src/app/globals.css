@@ -200,7 +200,7 @@
 /* Topographic contour background — per light-section group, no tiling */
 .topo-section-bg {
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 }
 
 .topo-section-bg::before {
