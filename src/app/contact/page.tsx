@@ -39,7 +39,7 @@ export default function ContactPage() {
       />
 
       {/* ===== HERO (light — no dark on Contact) ===== */}
-      <section className="relative overflow-hidden bg-wash-blue py-20 md:py-24">
+      <section className="topo-bg relative overflow-hidden bg-wash-blue py-20 md:py-24">
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Contact</p>
@@ -58,7 +58,7 @@ export default function ContactPage() {
       </section>
 
       {/* ===== FORM + INFO (white) ===== */}
-      <section className="py-16 md:py-20">
+      <section className="topo-bg py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid gap-10 md:grid-cols-2">
             {/* Contact Form */}
@@ -114,7 +114,7 @@ export default function ContactPage() {
       </section>
 
       {/* ===== WHAT TO EXPECT (off-white) ===== */}
-      <section className="bg-surface py-16 md:py-20">
+      <section className="topo-bg bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <h2 className="text-center text-3xl font-bold md:text-4xl">What to expect in your demo</h2>

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
@@ -36,9 +37,16 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
       className="sticky top-0 z-50 w-full border-b border-border-subtle bg-white/80 backdrop-blur-xl transition-shadow duration-200"
       style={{ boxShadow: scrolled ? '0 1px 3px rgba(0,0,0,0.06)' : 'none' }}
     >
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-4">
-        <Link href="/" className="text-xl font-extrabold tracking-wider text-text-card-title">
-          {brandName}
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3">
+        <Link href="/" className="flex items-center gap-0" aria-label={brandName}>
+          <Image
+            src="/images/sovvrn-logo-blue.svg"
+            alt={`${brandName} logo`}
+            width={520}
+            height={120}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

@@ -196,8 +196,8 @@ const faqItems = [
 
 // Give command-center a blue wash background
 const getBgClass = (index: number) => {
-  if (index === 0) return 'bg-wash-blue'
-  return index % 2 === 0 ? 'bg-surface' : ''
+  if (index === 0) return 'topo-bg bg-wash-blue'
+  return index % 2 === 0 ? 'topo-bg bg-surface' : 'topo-bg'
 }
 
 export default function PlatformPage() {
@@ -312,7 +312,7 @@ export default function PlatformPage() {
       })}
 
       {/* ===== INTEGRATIONS (white) ===== */}
-      <section className="py-16 md:py-20">
+      <section className="topo-bg py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Integrations</p>
@@ -339,7 +339,7 @@ export default function PlatformPage() {
       </section>
 
       {/* ===== FAQ (off-white) ===== */}
-      <section className="bg-surface">
+      <section className="topo-bg bg-surface">
         <FAQSection
           title="Platform questions"
           items={faqItems}

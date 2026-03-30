@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface FooterProps {
   brandName: string
@@ -13,8 +14,14 @@ export function Footer({ brandName, links, copyright }: FooterProps) {
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <Link href="/" className="text-xl font-extrabold tracking-wider text-dark-text">
-              SOVVRN
+            <Link href="/" aria-label={brandName}>
+              <Image
+                src="/images/sovvrn-logo-white.svg"
+                alt={`${brandName} logo`}
+                width={520}
+                height={120}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-dark-text-secondary">
               The intelligence layer for multi-unit operators. Proactive signals, AI coaching, and operational clarity — delivered where you already work.

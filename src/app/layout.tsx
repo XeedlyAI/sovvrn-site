@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   },
   description: "AI-powered business intelligence for multi-unit restaurant operators. Proactive coaching, anomaly detection, and actionable signals — delivered where you already work.",
   metadataBase: new URL('https://sovvrn.com'),
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/images/sovvrn-icon-blue.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

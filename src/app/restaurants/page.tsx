@@ -184,7 +184,7 @@ export default function RestaurantsPage() {
       </section>
 
       {/* ===== PAIN POINTS + SOLUTIONS (white) ===== */}
-      <section className="py-16 md:py-20">
+      <section className="topo-bg py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">The problem</p>
@@ -217,7 +217,7 @@ export default function RestaurantsPage() {
       </section>
 
       {/* ===== LOCATION ANALYSIS SCREENSHOT (between pain points and KPIs) ===== */}
-      <section className="bg-surface py-16 md:py-20">
+      <section className="topo-bg bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <ScreenshotFrame
@@ -234,7 +234,7 @@ export default function RestaurantsPage() {
       </section>
 
       {/* ===== KPIs TRACKED (blue wash) ===== */}
-      <section className="bg-wash-blue py-16 md:py-20">
+      <section className="topo-bg bg-wash-blue py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">KPIs</p>
@@ -259,7 +259,7 @@ export default function RestaurantsPage() {
       </section>
 
       {/* ===== CUSTOMER ARCHETYPES (white) ===== */}
-      <section className="py-16 md:py-20">
+      <section className="topo-bg py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Who it&apos;s for</p>
@@ -300,7 +300,7 @@ export default function RestaurantsPage() {
       </section>
 
       {/* ===== FAQ (off-white) ===== */}
-      <section className="bg-surface">
+      <section className="topo-bg bg-surface">
         <FAQSection
           title="Restaurant-specific questions"
           items={faqItems}
