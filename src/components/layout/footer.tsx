@@ -16,10 +16,10 @@ export function Footer({ brandName, links, copyright }: FooterProps) {
           <div>
             <Link href="/" aria-label={brandName}>
               <Image
-                src="/images/sovvrn-logo-white.svg"
+                src="/images/sovvrn_tree_logo_white_blue.svg"
                 alt={`${brandName} logo`}
-                width={520}
-                height={120}
+                width={820}
+                height={350}
                 className="h-8 w-auto"
               />
             </Link>

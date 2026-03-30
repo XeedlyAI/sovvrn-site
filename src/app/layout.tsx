@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://sovvrn.com'),
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/images/Sovvrn_tree_icon_blue.svg', type: 'image/svg+xml' },
     ],
-    apple: '/images/sovvrn-icon-blue.svg',
+    apple: '/images/Sovvrn_tree_icon_blue.svg',
   },
   openGraph: {
     type: 'website',

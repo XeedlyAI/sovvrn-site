@@ -40,10 +40,10 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3">
         <Link href="/" className="flex items-center gap-0" aria-label={brandName}>
           <Image
-            src="/images/sovvrn-logo-blue.svg"
+            src="/images/sovvrn_tree_logo-blue.svg"
             alt={`${brandName} logo`}
-            width={520}
-            height={120}
+            width={820}
+            height={350}
             className="h-9 w-auto"
             priority
           />
