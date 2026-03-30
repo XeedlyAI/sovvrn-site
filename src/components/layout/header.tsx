@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -22,16 +22,29 @@ interface HeaderProps {
 export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const isActive = (href: string) => pathname === href
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.08]"
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
+        scrolled
+          ? 'border-b border-white/[0.08]'
+          : 'border-b border-transparent'
+      )}
       style={{
-        background: 'rgba(12, 15, 20, 0.30)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        background: scrolled ? 'rgba(12, 15, 20, 0.30)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'blur(0px)',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'blur(0px)',
       }}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3">
