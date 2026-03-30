@@ -48,6 +48,7 @@ const navLinks = [
   { label: 'Platform', href: '/platform' },
   { label: 'Restaurants', href: '/restaurants' },
   { label: 'About', href: '/about' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
 ]
 
@@ -55,6 +56,7 @@ const footerLinks = [
   { label: 'Platform', href: '/platform' },
   { label: 'Restaurants', href: '/restaurants' },
   { label: 'About', href: '/about' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/blog' },
 ]
