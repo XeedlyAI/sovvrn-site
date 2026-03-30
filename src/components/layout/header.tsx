@@ -29,7 +29,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
     <header
       className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.08]"
       style={{
-        background: 'rgba(12, 15, 20, 0.92)',
+        background: 'rgba(12, 15, 20, 0.30)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
       }}
@@ -87,7 +87,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
         <nav
           className="flex flex-col gap-4 border-t border-white/[0.08] px-5 py-5 md:hidden"
           style={{
-            background: 'rgba(12, 15, 20, 0.92)',
+            background: 'rgba(12, 15, 20, 0.85)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
           }}
