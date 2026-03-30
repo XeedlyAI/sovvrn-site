@@ -187,21 +187,20 @@ export default function HomePage() {
             </SectionReveal>
           </div>
 
-          {/* Social proof bar — full width below both columns */}
-          <SectionReveal delay={0.5}>
-            <div className="stats-topo-bg mt-12 pt-12 pb-4 md:mt-16">
-              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
-                <StatCounter value="200" suffix="+" label="Locations Monitored" />
-                <StatCounter value="99.9" suffix="%" label="Platform Uptime" />
-                <StatCounter value="50,000" suffix="+" label="Signals Delivered" />
-              </div>
-            </div>
-          </SectionReveal>
         </div>
       </section>
 
       {/* Topo background group: all light sections between dark hero and dark CTA */}
       <div className="topo-section-bg">
+
+      {/* ===== STATS (light topo) ===== */}
+      <SectionReveal>
+        <div className="flex flex-wrap items-center justify-center gap-8 pt-16 pb-8 md:gap-14 md:pt-20 md:pb-12">
+          <StatCounter value="200" suffix="+" label="Locations Monitored" />
+          <StatCounter value="99.9" suffix="%" label="Platform Uptime" />
+          <StatCounter value="50,000" suffix="+" label="Signals Delivered" />
+        </div>
+      </SectionReveal>
 
       {/* ===== PROBLEM (white) ===== */}
       <section className="py-16 md:py-20">

@@ -225,31 +225,3 @@
   z-index: 1;
 }
 
-/* Dark topo contour background for stats area */
-.stats-topo-bg {
-  position: relative;
-}
-
-.stats-topo-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 100%;
-  background-image: url('/images/topo-stats-dark.svg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 80px);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px);
-}
-
-.stats-topo-bg > * {
-  position: relative;
-  z-index: 1;
-}
-
