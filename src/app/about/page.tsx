@@ -52,6 +52,9 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
       />
 
+      {/* Topo background group: all light sections (no dark sections on About) */}
+      <div className="topo-section-bg">
+
       {/* ===== HERO (light — no dark hero on About) ===== */}
       <section className="relative overflow-hidden bg-wash-blue py-20 md:py-28">
         <div className="relative mx-auto max-w-[1200px] px-5">
@@ -221,6 +224,7 @@ export default function AboutPage() {
           </SectionReveal>
         </div>
       </section>
+      </div>{/* end topo-section-bg */}
     </main>
   )
 }

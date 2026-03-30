@@ -38,6 +38,9 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
+      {/* Topo background group: all light sections (no dark sections on Contact) */}
+      <div className="topo-section-bg">
+
       {/* ===== HERO (light — no dark on Contact) ===== */}
       <section className="relative overflow-hidden bg-wash-blue py-20 md:py-24">
         <div className="relative mx-auto max-w-[1200px] px-5">
@@ -148,6 +151,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      </div>{/* end topo-section-bg */}
     </main>
   )
 }

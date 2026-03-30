@@ -36,6 +36,9 @@ const posts = [
 export default function BlogPage() {
   return (
     <main>
+      {/* Topo background group: all light sections (no dark sections on Blog) */}
+      <div className="topo-section-bg">
+
       {/* ===== HERO (light — no dark on Blog) ===== */}
       <section className="relative overflow-hidden bg-wash-blue py-20 md:py-24">
         <div className="relative mx-auto max-w-[1200px] px-5">
@@ -117,6 +120,8 @@ export default function BlogPage() {
           </SectionReveal>
         </div>
       </section>
+
+      </div>{/* end topo-section-bg */}
     </main>
   )
 }

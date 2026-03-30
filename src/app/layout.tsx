@@ -73,9 +73,7 @@ export default function RootLayout({
           ctaLabel="Book a Demo"
           ctaHref="/contact"
         />
-        <div className="topo-continuous-bg">
-          {children}
-        </div>
+        {children}
         <Footer
           brandName="Sovvrn"
           links={footerLinks}

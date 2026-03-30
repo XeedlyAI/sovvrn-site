@@ -238,6 +238,9 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* Topo background group: all light sections between dark hero and dark CTA */}
+      <div className="topo-section-bg">
+
       {/* ===== CAPABILITIES (alternating white/off-white, first gets blue wash) ===== */}
       {capabilities.map((cap, i) => {
         const isOdd = i % 2 === 0 // 0-indexed: even index = odd section (1st, 3rd, etc.)
@@ -345,6 +348,8 @@ export default function PlatformPage() {
           items={faqItems}
         />
       </section>
+
+      </div>{/* end topo-section-bg */}
 
       {/* ===== CTA (dark) ===== */}
       <section className="section-dark py-16 md:py-20">

@@ -197,6 +197,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Topo background group: all light sections between dark hero and dark CTA */}
+      <div className="topo-section-bg">
+
       {/* ===== PROBLEM (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
@@ -403,6 +406,8 @@ export default function HomePage() {
           items={faqItems}
         />
       </section>
+
+      </div>{/* end topo-section-bg */}
 
       {/* ===== FINAL CTA (dark) ===== */}
       <section className="section-dark py-16 md:py-20">

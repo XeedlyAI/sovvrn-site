@@ -183,6 +183,9 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
+      {/* Topo background group: all light sections between dark hero and dark CTA */}
+      <div className="topo-section-bg">
+
       {/* ===== PAIN POINTS + SOLUTIONS (white) ===== */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
@@ -306,6 +309,8 @@ export default function RestaurantsPage() {
           items={faqItems}
         />
       </section>
+
+      </div>{/* end topo-section-bg */}
 
       {/* ===== CTA (dark) ===== */}
       <section className="section-dark py-16 md:py-20">
