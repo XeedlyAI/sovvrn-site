@@ -129,60 +129,66 @@ export default function HomePage() {
       />
 
       {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden pb-16 pt-20 md:pb-24 md:pt-28">
+      <section className="section-dark relative overflow-hidden pb-16 pt-20 md:pb-20 md:pt-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
-          <SectionReveal>
-            <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">
-              The intelligence layer for multi-unit operators
-            </p>
-          </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
-              Stop pulling reports.<br />
-              Start getting answers.
-            </h1>
-          </SectionReveal>
-          <SectionReveal delay={0.2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text-body">
-              Sovvrn connects to your POS, labor tools, and review platforms — then delivers proactive intelligence to your phone before your first location visit. AI coaching, anomaly detection, and cost tracking for multi-unit restaurant operators.
-            </p>
-          </SectionReveal>
-          <SectionReveal delay={0.3}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
-              >
-                Book a Demo <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/platform"
-                className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-6 py-3 text-sm font-semibold text-dark-text transition-all hover:border-dark-text-secondary/40 hover:bg-dark-surface"
-              >
-                See How It Works
-              </Link>
+          {/* Two-column layout: text left, screenshot right */}
+          <div className="grid items-center gap-10 md:grid-cols-[45%_55%] md:gap-12">
+            {/* Left column — text + CTAs */}
+            <div>
+              <SectionReveal>
+                <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">
+                  The intelligence layer for multi-unit operators
+                </p>
+              </SectionReveal>
+              <SectionReveal delay={0.1}>
+                <h1 className="text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
+                  Stop pulling reports.<br />
+                  Start getting answers.
+                </h1>
+              </SectionReveal>
+              <SectionReveal delay={0.2}>
+                <p className="mt-6 text-lg leading-relaxed text-dark-text-body">
+                  Sovvrn connects to your POS, labor tools, and review platforms — then delivers proactive intelligence to your phone before your first location visit. AI coaching, anomaly detection, and cost tracking for multi-unit restaurant operators.
+                </p>
+              </SectionReveal>
+              <SectionReveal delay={0.3}>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-lg bg-accent-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-md"
+                  >
+                    Book a Demo <ArrowRight size={16} />
+                  </Link>
+                  <Link
+                    href="/platform"
+                    className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-6 py-3 text-sm font-semibold text-dark-text transition-all hover:border-dark-text-secondary/40 hover:bg-dark-surface"
+                  >
+                    See How It Works
+                  </Link>
+                </div>
+              </SectionReveal>
             </div>
-          </SectionReveal>
 
-          {/* Hero product screenshot */}
-          <SectionReveal delay={0.4}>
-            <div className="mt-14">
-              <ScreenshotFrame
-                src="/images/screenshots/dashboard-kpi-insight.png"
-                alt="Sovvrn dashboard showing KPI cards, AI insights, and cross-location intelligence for restaurant operators"
-                width={3000}
-                height={2000}
-                priority
-                perspective
-                className="section-dark-screenshot"
-              />
-            </div>
-          </SectionReveal>
+            {/* Right column — product screenshot */}
+            <SectionReveal delay={0.4}>
+              <div className="md:mr-[-40px]">
+                <ScreenshotFrame
+                  src="/images/screenshots/dashboard-kpi-insight.png"
+                  alt="Sovvrn dashboard showing KPI cards, AI insights, and cross-location intelligence for restaurant operators"
+                  width={3000}
+                  height={2000}
+                  priority
+                  perspective
+                  className="section-dark-screenshot"
+                />
+              </div>
+            </SectionReveal>
+          </div>
 
-          {/* Social proof bar */}
+          {/* Social proof bar — full width below both columns */}
           <SectionReveal delay={0.5}>
-            <div className="mt-14 flex flex-wrap items-center gap-8 border-t border-dark-border/60 pt-8 md:gap-14">
+            <div className="mt-12 flex flex-wrap items-center gap-8 border-t border-dark-border/60 pt-8 md:mt-16 md:gap-14">
               <StatCounter value="200" suffix="+" label="Locations Monitored" />
               <StatCounter value="99.9" suffix="%" label="Platform Uptime" />
               <StatCounter value="50,000" suffix="+" label="Signals Delivered" />
