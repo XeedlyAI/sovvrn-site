@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { organizationSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
 import { StatCounter } from '@/components/sections/stat-counter'
+import { ScreenshotFrame } from '@/components/sections/screenshot-frame'
 import { FAQSection } from '@/components/sections/faq-section'
 import {
   BarChart3,
@@ -10,13 +11,8 @@ import {
   Phone,
   Send,
   ArrowRight,
-  Zap,
-  Database,
-  Brain,
-  Bell,
   UtensilsCrossed,
   Dumbbell,
-  Monitor,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -70,16 +66,22 @@ const features = [
     title: 'Command Center',
     description: 'A three-panel intelligence hub that surfaces operational signals with AI analysis and recommended actions. Signals auto-expire after 48 hours so you always see what matters now.',
     badge: 'Intelligence',
+    screenshot: '/images/screenshots/command-center-signal.png',
+    screenshotAlt: 'Sovvrn Command Center showing operational signals with AI analysis and recommended actions',
   },
   {
     title: 'Morning Briefing',
     description: '"Yesterday your 10 locations did $47K. Top performer: Oak Park +18%. Needs attention: Airport Terminal B, prime cost 9 points above target." Delivered at 7am via SMS.',
     badge: 'Delivery',
+    screenshot: '/images/screenshots/morning-briefing-expanded.png',
+    screenshotAlt: 'Sovvrn Morning Briefing showing revenue health, cost position, and daily priorities for restaurant operators',
   },
   {
     title: 'Voice AI Agent',
     description: 'Every call answered. Every lead captured. Every order taken. Your AI phone agent works 24/7 and recovers the revenue that used to go to voicemail.',
     badge: 'Voice',
+    screenshot: '/images/screenshots/voice-intelligence-dashboard.png',
+    screenshotAlt: 'Sovvrn Voice AI dashboard showing call analytics, answer rates, and revenue attribution',
   },
 ]
 
@@ -127,7 +129,7 @@ export default function HomePage() {
       />
 
       {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden py-20 md:py-28">
+      <section className="section-dark relative overflow-hidden pb-16 pt-20 md:pb-24 md:pt-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
@@ -163,10 +165,24 @@ export default function HomePage() {
             </div>
           </SectionReveal>
 
-          {/* Social proof bar */}
+          {/* Hero product screenshot */}
           <SectionReveal delay={0.4}>
+            <div className="mt-14">
+              <ScreenshotFrame
+                src="/images/screenshots/dashboard-kpi-insight.png"
+                alt="Sovvrn dashboard showing KPI cards, AI insights, and cross-location intelligence for restaurant operators"
+                width={3000}
+                height={2000}
+                priority
+                perspective
+                className="section-dark-screenshot"
+              />
+            </div>
+          </SectionReveal>
+
+          {/* Social proof bar */}
+          <SectionReveal delay={0.5}>
             <div className="mt-14 flex flex-wrap items-center gap-8 border-t border-dark-border/60 pt-8 md:gap-14">
-              {/* PLACEHOLDER — replace with real data */}
               <StatCounter value="200" suffix="+" label="Locations Monitored" />
               <StatCounter value="99.9" suffix="%" label="Platform Uptime" />
               <StatCounter value="50,000" suffix="+" label="Signals Delivered" />
@@ -200,7 +216,7 @@ export default function HomePage() {
               },
             ].map((item, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-light rounded-xl p-6">
+                <div className="card-light rounded-xl border-l-[3px] border-l-warning p-6">
                   <h3 className="text-lg font-bold">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{item.body}</p>
                 </div>
@@ -225,7 +241,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {pillars.map((pillar, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-light rounded-xl p-8">
+                <div className="card-light rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                   <pillar.icon size={28} className="text-accent-blue" />
                   <h3 className="mt-4 text-xl font-bold">{pillar.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{pillar.description}</p>
@@ -254,9 +270,11 @@ export default function HomePage() {
           </SectionReveal>
           <div className="mt-10 grid gap-8 md:grid-cols-4">
             {steps.map((s, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
+              <SectionReveal key={i} delay={i * 0.12}>
                 <div className="relative">
-                  <span className="font-mono text-3xl font-bold text-accent-blue/20">{s.step}</span>
+                  <SectionReveal delay={i * 0.12}>
+                    <span className="font-mono text-3xl font-bold text-accent-gold/30">{s.step}</span>
+                  </SectionReveal>
                   <h3 className="mt-2 text-lg font-bold">{s.label}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{s.description}</p>
                 </div>
@@ -284,10 +302,13 @@ export default function HomePage() {
                   </span>
                   <h3 className="mt-4 text-2xl font-bold md:text-3xl">{feat.title}</h3>
                   <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-body">{feat.description}</p>
-                  {/* PLACEHOLDER: product screenshot/mockup area */}
-                  <div className="placeholder-box mt-8 h-48 rounded-lg md:h-64">
-                    <Monitor size={24} className="text-text-muted/50" />
-                    <p className="font-mono text-xs text-text-muted">Product preview coming soon</p>
+                  <div className="mt-8">
+                    <ScreenshotFrame
+                      src={feat.screenshot}
+                      alt={feat.screenshotAlt}
+                      width={3000}
+                      height={2000}
+                    />
                   </div>
                 </div>
               </SectionReveal>
@@ -307,7 +328,6 @@ export default function HomePage() {
           </SectionReveal>
           <SectionReveal delay={0.1}>
             <div className="mt-10 grid gap-8 md:grid-cols-4">
-              {/* PLACEHOLDER — replace with real data */}
               <StatCounter value="12" suffix="%" label="Avg. Cost Reduction in 30 Days" />
               <StatCounter value="3,000" prefix="$" suffix="+" label="Monthly Recovered Revenue (Voice AI)" />
               <StatCounter value="90" suffix=" sec" label="Avg. Time to First Insight" />
@@ -315,14 +335,20 @@ export default function HomePage() {
             </div>
           </SectionReveal>
 
-          {/* Testimonial placeholder */}
+          {/* Testimonial */}
           <SectionReveal delay={0.2}>
-            <div className="card-light mt-12 rounded-xl p-8 md:p-10">
-              <p className="max-w-2xl text-lg italic leading-relaxed text-text-body">
-                {/* PLACEHOLDER — replace with real testimonial */}
+            <div className="card-light relative mt-12 overflow-hidden rounded-xl p-8 md:p-10">
+              {/* Decorative quote marks */}
+              <span
+                className="pointer-events-none absolute -left-2 -top-4 select-none font-serif text-[120px] leading-none text-accent-gold/10 md:text-[160px]"
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <p className="relative max-w-2xl text-lg italic leading-relaxed text-text-body">
                 &ldquo;Before Sovvrn, I spent 90 minutes every morning logging into Toast for each of my 12 locations. Now I get a text at 7am that tells me exactly where to focus. Last month it flagged a produce invoice 22% above contract price that would have cost us $4K.&rdquo;
               </p>
-              <p className="mt-4 font-mono text-xs text-text-muted">[PLACEHOLDER] — Name, Title, Company, 12 Locations</p>
+              <p className="relative mt-4 font-mono text-xs text-text-muted">[PLACEHOLDER] — Name, Title, Company, 12 Locations</p>
             </div>
           </SectionReveal>
         </div>
@@ -339,7 +365,7 @@ export default function HomePage() {
           </SectionReveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <SectionReveal delay={0.1}>
-              <Link href="/restaurants" className="card-light group block rounded-xl p-8">
+              <Link href="/restaurants" className="card-light group block rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                 <UtensilsCrossed size={28} className="text-accent-blue" />
                 <h3 className="mt-4 text-xl font-bold">Restaurants</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">

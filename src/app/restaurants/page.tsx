@@ -79,21 +79,21 @@ const archetypes = [
     role: 'Owner-Operator',
     locations: '3 locations',
     description: 'Sarah just opened her third location and feels the stretch. She used to know everything happening at each store. Now she catches problems a week late. Sovvrn gives Sarah a morning briefing so she knows where to go before she leaves the house.',
-    plan: 'Freedom Intelligence — $499/mo',
+    plan: 'Sovvrn Intelligence — $499/mo',
   },
   {
     name: 'Pete',
     role: 'Multi-Unit Operator',
     locations: '10 locations',
     description: 'Pete runs 10 fast-casual locations and spends 90 minutes every morning logging into Toast, location by location. He copies numbers into a spreadsheet that\'s always a day behind. Sovvrn replaces that spreadsheet with real-time intelligence and a text at 7am.',
-    plan: 'Freedom Core — $999/mo',
+    plan: 'Sovvrn Core — $999/mo',
   },
   {
     name: 'Mike',
     role: 'Portfolio Operator',
     locations: '3 brands, 22 locations',
     description: 'Mike runs Domino\'s, Wingstop, and an independent concept. Each brand has different cost targets, different POS systems, different KPIs. Sovvrn gives Mike one dashboard with brand-specific benchmarks and a portfolio-wide view for investor reporting.',
-    plan: 'Freedom Pro — $1,799/mo',
+    plan: 'Sovvrn Pro — $1,799/mo',
   },
 ]
 
