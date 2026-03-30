@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { SectionReveal } from '@/components/sections/section-reveal'
 import { FAQSection } from '@/components/sections/faq-section'
+import { GlowBackground } from '@/components/sections/glow-background'
 import {
   ArrowRight,
   Check,
@@ -434,8 +435,9 @@ export default function PricingPage() {
       </div>{/* end topo-section-bg */}
 
       {/* ===== FINAL CTA (dark) ===== */}
-      <section className="section-dark py-16 md:py-20">
-        <div className="mx-auto max-w-[1200px] px-5 text-center">
+      <section className="section-dark relative overflow-hidden py-16 md:py-20">
+        <GlowBackground />
+        <div className="relative z-10 mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
             <h2 className="text-3xl font-bold md:text-4xl">Ready to stop pulling reports?</h2>
             <p className="mx-auto mt-4 max-w-lg text-dark-text-body">

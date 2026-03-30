@@ -4,6 +4,7 @@ import { serviceSchema } from '@/lib/structured-data'
 import { SectionReveal } from '@/components/sections/section-reveal'
 import { ScreenshotFrame } from '@/components/sections/screenshot-frame'
 import { FAQSection } from '@/components/sections/faq-section'
+import { GlowBackground } from '@/components/sections/glow-background'
 import {
   ArrowRight,
   TrendingDown,
@@ -135,7 +136,8 @@ export default function RestaurantsPage() {
 
       {/* ===== HERO (dark) ===== */}
       <section className="section-dark relative overflow-hidden py-20 md:py-28">
-        <div className="mx-auto max-w-[1200px] px-5">
+        <GlowBackground />
+        <div className="relative z-10 mx-auto max-w-[1200px] px-5">
           {/* Two-column layout: text left, screenshot right */}
           <div className="grid items-center gap-10 md:grid-cols-[45%_55%] md:gap-12">
             {/* Left column — text + CTAs */}
@@ -318,8 +320,9 @@ export default function RestaurantsPage() {
       </div>{/* end topo-section-bg */}
 
       {/* ===== CTA (dark) ===== */}
-      <section className="section-dark py-16 md:py-20">
-        <div className="mx-auto max-w-[1200px] px-5 text-center">
+      <section className="section-dark relative overflow-hidden py-16 md:py-20">
+        <GlowBackground />
+        <div className="relative z-10 mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
             <h2 className="text-3xl font-bold md:text-4xl">Built by restaurant operators, for restaurant operators</h2>
             <p className="mx-auto mt-4 max-w-lg text-dark-text-body">

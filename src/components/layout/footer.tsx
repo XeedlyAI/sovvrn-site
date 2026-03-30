@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { GlowBackground } from '@/components/sections/glow-background'
 
 interface FooterProps {
   brandName: string
@@ -9,8 +10,9 @@ interface FooterProps {
 
 export function Footer({ brandName, links, copyright }: FooterProps) {
   return (
-    <footer className="section-dark border-t border-dark-border">
-      <div className="mx-auto max-w-[1200px] px-5 py-16">
+    <footer className="section-dark relative overflow-hidden border-t border-dark-border">
+      <GlowBackground />
+      <div className="relative z-10 mx-auto max-w-[1200px] px-5 py-16">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
