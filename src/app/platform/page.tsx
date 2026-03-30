@@ -210,7 +210,7 @@ export default function PlatformPage() {
       />
 
       {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden py-20 md:py-28">
+      <section className="section-dark relative overflow-hidden pb-20 pt-36 md:pb-28 md:pt-40">
         <GlowBackground />
         <div className="relative z-10 mx-auto max-w-[1200px] px-5">
           <SectionReveal>

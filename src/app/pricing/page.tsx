@@ -218,7 +218,7 @@ export default function PricingPage() {
       <div className="topo-section-bg">
 
       {/* ===== HERO ===== */}
-      <section className="py-20 md:py-28">
+      <section className="pb-20 pt-36 md:pb-28 md:pt-40">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Pricing</p>

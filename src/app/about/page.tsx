@@ -56,7 +56,7 @@ export default function AboutPage() {
       <div className="topo-section-bg">
 
       {/* ===== HERO (light — no dark hero on About) ===== */}
-      <section className="relative overflow-hidden bg-wash-blue py-20 md:py-28">
+      <section className="relative overflow-hidden bg-wash-blue pb-20 pt-36 md:pb-28 md:pt-40">
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">About</p>

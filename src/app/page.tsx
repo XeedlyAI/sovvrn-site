@@ -130,7 +130,7 @@ export default function HomePage() {
       />
 
       {/* ===== HERO (dark) ===== */}
-      <section className="section-dark relative overflow-hidden pb-16 pt-20 md:pb-20 md:pt-24">
+      <section className="section-dark relative overflow-hidden pb-16 pt-36 md:pb-20 md:pt-40">
         <GlowBackground />
         <div className="relative z-10 mx-auto max-w-[1200px] px-5">
           {/* Two-column layout: text left, screenshot right */}
