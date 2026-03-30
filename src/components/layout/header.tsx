@@ -44,7 +44,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
             alt={`${brandName} logo`}
             width={820}
             height={350}
-            className="h-14 w-auto"
+            className="h-12 w-auto"
             priority
           />
         </Link>
