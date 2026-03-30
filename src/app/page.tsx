@@ -198,7 +198,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== PROBLEM (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">The operator&apos;s dilemma</p>
@@ -233,7 +233,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== PLATFORM PILLARS (blue wash) ===== */}
-      <section className="topo-bg bg-wash-blue py-16 md:py-20">
+      <section className="bg-wash-blue py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Platform</p>
@@ -266,7 +266,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== HOW IT WORKS (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">How it works</p>
@@ -291,7 +291,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== FEATURE DEEP-DIVES (off-white) ===== */}
-      <section className="topo-bg bg-surface py-16 md:py-20">
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Product</p>
@@ -324,7 +324,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== SOCIAL PROOF (warm wash) ===== */}
-      <section className="topo-bg bg-wash-warm py-16 md:py-20">
+      <section className="bg-wash-warm py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Results</p>
@@ -361,7 +361,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== VERTICALS TEASER (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Verticals</p>
@@ -397,7 +397,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== FAQ (off-white) ===== */}
-      <section className="topo-bg bg-surface">
+      <section className="bg-surface">
         <FAQSection
           title="Common questions about Sovvrn"
           items={faqItems}

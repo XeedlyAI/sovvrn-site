@@ -37,7 +37,7 @@ export default function BlogPage() {
   return (
     <main>
       {/* ===== HERO (light — no dark on Blog) ===== */}
-      <section className="topo-bg relative overflow-hidden bg-wash-blue py-20 md:py-24">
+      <section className="relative overflow-hidden bg-wash-blue py-20 md:py-24">
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Blog</p>
@@ -56,7 +56,7 @@ export default function BlogPage() {
       </section>
 
       {/* ===== POST LISTING (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid gap-6 md:grid-cols-2">
             {posts.map((post, i) => (
@@ -99,7 +99,7 @@ export default function BlogPage() {
       </section>
 
       {/* ===== CTA (warm wash — no dark on Blog) ===== */}
-      <section className="topo-bg bg-wash-warm py-16 md:py-20">
+      <section className="bg-wash-warm py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
             <h2 className="text-3xl font-bold md:text-4xl">Ready to stop pulling reports?</h2>

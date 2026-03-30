@@ -53,7 +53,7 @@ export default function AboutPage() {
       />
 
       {/* ===== HERO (light — no dark hero on About) ===== */}
-      <section className="topo-bg relative overflow-hidden bg-wash-blue py-20 md:py-28">
+      <section className="relative overflow-hidden bg-wash-blue py-20 md:py-28">
         <div className="relative mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">About</p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== FOUNDER STORY (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <div className="grid gap-10 md:grid-cols-2">
             <SectionReveal>
@@ -106,7 +106,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== VISION (off-white) ===== */}
-      <section className="topo-bg bg-surface py-16 md:py-20">
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Vision</p>
@@ -131,7 +131,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== PARENT COMPANY (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Parent Company</p>
@@ -150,7 +150,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== VALUES (off-white) ===== */}
-      <section className="topo-bg bg-surface py-16 md:py-20">
+      <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Values</p>
@@ -173,7 +173,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== TEAM (white) ===== */}
-      <section className="topo-bg py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-accent-blue">Team</p>
@@ -197,7 +197,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== CTA (warm wash — no dark on About) ===== */}
-      <section className="topo-bg bg-wash-warm py-16 md:py-20">
+      <section className="bg-wash-warm py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-5 text-center">
           <SectionReveal>
             <h2 className="text-3xl font-bold md:text-4xl">Want to learn more?</h2>
