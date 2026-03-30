@@ -210,8 +210,7 @@ export default function PlatformPage() {
 
       {/* ===== HERO (dark) ===== */}
       <section className="section-dark relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
-        <div className="relative mx-auto max-w-[1200px] px-5">
+        <div className="mx-auto max-w-[1200px] px-5">
           <SectionReveal>
             <p className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-gold">Platform</p>
           </SectionReveal>

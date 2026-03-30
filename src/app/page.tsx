@@ -130,8 +130,7 @@ export default function HomePage() {
 
       {/* ===== HERO (dark) ===== */}
       <section className="section-dark relative overflow-hidden pb-16 pt-20 md:pb-20 md:pt-24">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(78,138,230,0.12)_0%,_transparent_60%)]" />
-        <div className="relative mx-auto max-w-[1200px] px-5">
+        <div className="mx-auto max-w-[1200px] px-5">
           {/* Two-column layout: text left, screenshot right */}
           <div className="grid items-center gap-10 md:grid-cols-[45%_55%] md:gap-12">
             {/* Left column — text + CTAs */}
