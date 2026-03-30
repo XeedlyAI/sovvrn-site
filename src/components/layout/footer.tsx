@@ -22,7 +22,7 @@ export function Footer({ brandName, links, copyright }: FooterProps) {
                 alt={`${brandName} logo`}
                 width={820}
                 height={350}
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-dark-text-secondary">
