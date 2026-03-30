@@ -28,7 +28,7 @@ export function GlowBackground() {
           pointerEvents: 'none',
           zIndex: 0,
           backgroundImage:
-            'radial-gradient(circle 1px at center, rgba(255, 255, 255, 0.12) 0%, transparent 100%)',
+            'radial-gradient(circle 1.5px at center, rgba(255, 255, 255, 0.20) 0%, transparent 100%)',
           backgroundSize: '32px 32px',
         }}
       />
