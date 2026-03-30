@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -22,25 +22,22 @@ interface HeaderProps {
 export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const isActive = (href: string) => pathname === href
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b border-border-subtle bg-white/80 backdrop-blur-xl transition-shadow duration-200"
-      style={{ boxShadow: scrolled ? '0 1px 3px rgba(0,0,0,0.06)' : 'none' }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.08]"
+      style={{
+        background: 'rgba(12, 15, 20, 0.75)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+      }}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3">
         <Link href="/" className="flex items-center gap-0" aria-label={brandName}>
           <Image
-            src="/images/sovvrn_tree_logo-blue.svg"
+            src="/images/sovvrn_tree_logo_white_blue.svg"
             alt={`${brandName} logo`}
             width={820}
             height={350}
@@ -56,10 +53,10 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
               key={link.href}
               href={link.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-text-heading',
+                'text-sm font-medium transition-colors duration-200',
                 isActive(link.href)
-                  ? 'text-accent-blue'
-                  : 'text-text-secondary'
+                  ? 'text-[#38b6ff]'
+                  : 'text-white/70 hover:text-white'
               )}
             >
               {link.label}
@@ -77,7 +74,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
         {/* Mobile Toggle */}
         <button
-          className="text-text-card-title md:hidden"
+          className="text-white/80 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -87,16 +84,23 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="flex flex-col gap-4 border-t border-border-subtle bg-white px-5 py-5 md:hidden">
+        <nav
+          className="flex flex-col gap-4 border-t border-white/[0.08] px-5 py-5 md:hidden"
+          style={{
+            background: 'rgba(12, 15, 20, 0.92)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+          }}
+        >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                'text-sm font-medium hover:text-text-heading',
+                'text-sm font-medium transition-colors duration-200',
                 isActive(link.href)
-                  ? 'text-accent-blue'
-                  : 'text-text-secondary'
+                  ? 'text-[#38b6ff]'
+                  : 'text-white/70 hover:text-white'
               )}
               onClick={() => setMobileOpen(false)}
             >

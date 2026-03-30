@@ -68,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakarta.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+      <body className={`${plusJakarta.variable} ${ibmPlexMono.variable} font-sans antialiased pt-[72px]`}>
         <Header
           brandName="SOVVRN"
           navLinks={navLinks}
