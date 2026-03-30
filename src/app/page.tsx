@@ -65,22 +65,40 @@ const steps = [
 const features = [
   {
     title: 'Command Center',
-    description: 'A three-panel intelligence hub that surfaces operational signals with AI analysis and recommended actions. Signals auto-expire after 48 hours so you always see what matters now.',
     badge: 'Intelligence',
+    painPoint: 'You\u2019re managing ten locations across three systems. By the time you spot a problem in a spreadsheet, it\u2019s already cost you two days of margin. Most operators don\u2019t find issues \u2014 issues find them, usually too late.',
+    solution: 'The Command Center surfaces operational signals in real time with AI analysis and recommended actions. Signals auto-expire after 48 hours so your board is never stale \u2014 you always see what matters now, not last week\u2019s noise.',
+    proofPoints: [
+      { stat: '48hr', desc: 'auto-expiry \u2014 stale alerts never pile up' },
+      { stat: 'AI-ranked', desc: 'severity \u2014 urgent signals surface first' },
+      { stat: 'Dig Deeper', desc: '\u2014 tap any signal to start a threaded AI conversation about root cause' },
+    ],
     screenshot: '/images/screenshots/command-center-signal.png',
     screenshotAlt: 'Sovvrn Command Center showing operational signals with AI analysis and recommended actions',
   },
   {
     title: 'Morning Briefing',
-    description: '"Yesterday your 10 locations did $47K. Top performer: Oak Park +18%. Needs attention: Airport Terminal B, prime cost 9 points above target." Delivered at 7am via SMS.',
     badge: 'Delivery',
+    painPoint: 'Every morning starts the same way: logging into your POS, pulling yesterday\u2019s numbers, checking reviews, scanning labor reports. By the time you\u2019ve pieced together what happened, the breakfast rush is over and you\u2019re already reacting instead of leading.',
+    solution: 'Sovvrn delivers a morning briefing to your phone before your first location visit. Revenue, cost position, guest experience, top and bottom performers \u2014 synthesized into a narrative you can read in 90 seconds. It arrives via text, email, or Slack, wherever you actually look first.',
+    proofPoints: [
+      { stat: '90-second', desc: 'read \u2014 full network health at a glance' },
+      { stat: '7am', desc: 'delivery \u2014 intel before your first store visit' },
+      { stat: 'Text / Email / Slack', desc: '\u2014 meets you where you are' },
+    ],
     screenshot: '/images/screenshots/morning-briefing-expanded.png',
     screenshotAlt: 'Sovvrn Morning Briefing showing revenue health, cost position, and daily priorities for restaurant operators',
   },
   {
     title: 'Voice AI Agent',
-    description: 'Every call answered. Every lead captured. Every order taken. Your AI phone agent works 24/7 and recovers the revenue that used to go to voicemail.',
     badge: 'Voice',
+    painPoint: 'Your phones ring and nobody answers. Your best line cook isn\u2019t a phone operator, and every missed call is a missed order, a lost catering lead, or a frustrated regular who just wanted to check hours. Voicemail doesn\u2019t take orders.',
+    solution: 'Your AI phone agent answers every call, captures every lead, and takes orders 24/7. It sounds natural, knows your menu, handles modifications, and routes complex requests to the right person. Revenue that used to go to voicemail now goes to your register.',
+    proofPoints: [
+      { stat: '24/7', desc: 'coverage \u2014 every call answered, every shift' },
+      { stat: 'Real orders', desc: 'taken \u2014 not just messages, actual revenue captured' },
+      { stat: '147+', desc: 'calls handled \u2014 already proven across live deployments' },
+    ],
     screenshot: '/images/screenshots/voice-intelligence-dashboard.png',
     screenshotAlt: 'Sovvrn Voice AI dashboard showing call analytics, answer rates, and revenue attribution',
   },
@@ -304,26 +322,48 @@ export default function HomePage() {
               Built for operators who run their business from the floor
             </h2>
           </SectionReveal>
-          <div className="mt-10 space-y-6">
-            {features.map((feat, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div className="card-light rounded-xl p-8 md:p-10">
-                  <span className="inline-block rounded-md bg-accent-blue/10 px-3 py-1 font-mono text-xs font-medium text-accent-blue">
-                    {feat.badge}
-                  </span>
-                  <h3 className="mt-4 text-2xl font-bold md:text-3xl">{feat.title}</h3>
-                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-body">{feat.description}</p>
-                  <div className="mt-8">
-                    <ScreenshotFrame
-                      src={feat.screenshot}
-                      alt={feat.screenshotAlt}
-                      width={3000}
-                      height={2000}
-                    />
-                  </div>
+
+          <div className="mt-12 space-y-16 md:space-y-24">
+            {features.map((feat, i) => {
+              const isReversed = i % 2 === 1
+              return (
+                <div
+                  key={i}
+                  className={`grid items-center gap-10 md:grid-cols-[45%_55%] md:gap-12 ${isReversed ? 'md:[direction:rtl]' : ''}`}
+                >
+                  {/* Text column */}
+                  <SectionReveal delay={0.1}>
+                    <div className={isReversed ? 'md:[direction:ltr]' : ''}>
+                      <span className="inline-block rounded-md bg-accent-blue/10 px-3 py-1 font-mono text-xs font-medium text-accent-blue">
+                        {feat.badge}
+                      </span>
+                      <h3 className="mt-4 text-2xl font-bold md:text-3xl">{feat.title}</h3>
+                      <p className="mt-4 text-base leading-relaxed text-text-body">{feat.painPoint}</p>
+                      <p className="mt-3 text-base leading-relaxed text-text-body">{feat.solution}</p>
+                      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+                        {feat.proofPoints.map((pp, j) => (
+                          <p key={j} className="text-sm text-text-secondary">
+                            <span className="font-bold text-text-heading">{pp.stat}</span>{' '}{pp.desc}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </SectionReveal>
+
+                  {/* Screenshot column */}
+                  <SectionReveal delay={0.3}>
+                    <div className={isReversed ? 'md:[direction:ltr]' : ''}>
+                      <ScreenshotFrame
+                        src={feat.screenshot}
+                        alt={feat.screenshotAlt}
+                        width={3000}
+                        height={2000}
+                      />
+                    </div>
+                  </SectionReveal>
                 </div>
-              </SectionReveal>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
