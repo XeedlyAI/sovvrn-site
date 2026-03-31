@@ -10,7 +10,7 @@ interface FooterProps {
 
 export function Footer({ brandName, links, copyright }: FooterProps) {
   return (
-    <footer className="section-dark relative overflow-hidden border-t border-dark-border">
+    <footer className="section-dark relative overflow-hidden">
       <GlowBackground />
       <div className="relative z-10 mx-auto max-w-[1200px] px-5 py-16">
         <div className="grid gap-10 md:grid-cols-3">
