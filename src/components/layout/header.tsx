@@ -19,10 +19,15 @@ interface HeaderProps {
   ctaHref?: string
 }
 
+// Pages with light hero backgrounds where nav text needs to be dark
+const lightPages = ['/about', '/pricing', '/blog', '/contact']
+
 export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const isLightPage = lightPages.includes(pathname)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -32,6 +37,10 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
   }, [])
 
   const isActive = (href: string) => pathname === href
+
+  // When scrolled, the backdrop is dark on all pages — always use light text
+  // When not scrolled on a light page, use dark text
+  const useDarkText = isLightPage && !scrolled
 
   return (
     <header
@@ -50,7 +59,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3">
         <Link href="/" className="flex items-center gap-0" aria-label={brandName}>
           <Image
-            src="/images/sovvrn_tree_logo_white_blue.svg"
+            src={useDarkText ? '/images/sovvrn_tree_logo-blue.svg' : '/images/sovvrn_tree_logo_white_blue.svg'}
             alt={`${brandName} logo`}
             width={820}
             height={350}
@@ -69,7 +78,9 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
                 'text-sm font-medium transition-colors duration-200',
                 isActive(link.href)
                   ? 'text-[#38b6ff]'
-                  : 'text-white/70 hover:text-white'
+                  : useDarkText
+                    ? 'text-slate-700 hover:text-slate-900'
+                    : 'text-white/70 hover:text-white'
               )}
             >
               {link.label}
@@ -87,7 +98,10 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
 
         {/* Mobile Toggle */}
         <button
-          className="text-white/80 md:hidden"
+          className={cn(
+            'md:hidden transition-colors duration-200',
+            useDarkText ? 'text-slate-700' : 'text-white/80'
+          )}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -95,7 +109,7 @@ export function Header({ brandName, navLinks, ctaLabel, ctaHref }: HeaderProps) 
         </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav — always dark backdrop */}
       {mobileOpen && (
         <nav
           className="flex flex-col gap-4 border-t border-white/[0.08] px-5 py-5 md:hidden"
