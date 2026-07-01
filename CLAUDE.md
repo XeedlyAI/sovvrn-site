@@ -5,7 +5,7 @@
 2. Confirm clean git state: `git status`
 3. Read this file (CLAUDE.md)
 4. Identify the project type from the brief: Website or Landing Page
-5. Read the skill files — canonical copies live in the XeedlyAI library at `C:\Users\shadd\Documents\standards` (this repo no longer carries local copies):
+5. Read the skill files — canonical copies live in the XeedlyAI library at `..\standards` (this repo no longer carries local copies):
    - ALWAYS read (library): `skills\shared\content-voice\SKILL.md`, `skills\shared\webdev\SKILL.md`, `skills\site\site-design\SKILL.md`, `skills\shared\deploy\SKILL.md`
    - If Website: ALSO read `skills\site\seo-architecture\SKILL.md`
    - If Landing Page: ALSO read `skills\site\landing-page\SKILL.md`
