@@ -61,6 +61,6 @@
 
 ## Persistent Memory
 
-This project uses the Obsidian vault (sibling repo `..îdly-internal-tools`) as cross-session memory.
+This project uses the Obsidian vault (sibling repo `..\xeedly-internal-tools`) as cross-session memory.
 Read `CLAUDE-INTEGRATION.md` at session start for the full read/write protocol.
 At minimum, read `projects/Sovvrn.md` before starting work.
