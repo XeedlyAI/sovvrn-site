@@ -58,3 +58,9 @@
 - [ ] No banned words from the library content-voice skill appear anywhere
 - [ ] Responsive: looks correct at 375px, 768px, and 1440px widths
 - [ ] Lighthouse: 90+ on Performance, Accessibility, SEO
+
+## Persistent Memory
+
+This project uses the Obsidian vault (sibling repo `..îdly-internal-tools`) as cross-session memory.
+Read `CLAUDE-INTEGRATION.md` at session start for the full read/write protocol.
+At minimum, read `projects/Sovvrn.md` before starting work.
